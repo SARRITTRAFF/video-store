@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Video Store</title>
+<style>
+body{font-family:Arial;margin:0;background:#f4f6f8;color:#17202a}header{background:#111827;color:#fff;padding:16px}main{max-width:850px;margin:auto;padding:18px}.card{background:#fff;padding:18px;margin:14px 0;border-radius:12px;box-shadow:0 2px 8px #0001}input,textarea,button{width:100%;padding:11px;margin:6px 0;border:1px solid #ccd2d8;border-radius:8px;box-sizing:border-box}button{background:#111827;color:white}.hidden{display:none}.video{border:1px solid #ddd;padding:14px;margin:10px 0;border-radius:9px}
+</style></head><body>
+<header><b>My Video Store</b> <button id="logout" class="hidden" onclick="logout()">Logout</button></header>
+<main>
+<div id="msg"></div>
+<section id="auth" class="card"><h2>Register / Login</h2>
+<input id="name" placeholder="Name (registration)">
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+<button onclick="register()">Register</button><button onclick="login()">Login</button></section>
+<section id="app" class="hidden"><div class="card"><h2>Videos</h2><div id="videos">Loading...</div></div>
+<div id="admin" class="card hidden"><h2>Admin Portal</h2>
+<h3>Upload video</h3><input id="title" placeholder="Title"><textarea id="desc" placeholder="Description"></textarea>
+<input id="price" type="number" value="10" min="0"><input id="file" type="file" accept="video/*">
+<button onclick="upload()">Upload</button><h3>Users database</h3><button onclick="users()">View users</button><div id="userlist"></div></div></section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL="PASTE_YOUR_SUPABASE_URL_HERE";
+const SUPABASE_ANON_KEY="PASTE_YOUR_SUPABASE_ANON_KEY_HERE";
+const db=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);let me=null;
+const $=id=>document.getElementById(id);
+function message(x){$("msg").innerHTML='<div class="card">'+String(x).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c]))+"</div>"}
+async function register(){let {error}=await db.auth.signUp({email:$("email").value,password:$("password").value,options:{data:{name:$("name").value}}});message(error?error.message:"Registered. Confirm your email if required.")}
+async function login(){let {data,error}=await db.auth.signInWithPassword({email:$("email").value,password:$("password").value});if(error)return message(error.message);me=data.user;await start()}
+async function start(){ $("auth").classList.add("hidden");$("app").classList.remove("hidden");$("logout").classList.remove("hidden");
+let {data:p,error}=await db.from("profiles").select("role").eq("id",me.id).single();if(error)return message(error.message);if(p.role==="admin")$("admin").classList.remove("hidden");load()}
+async function load(){let {data,error}=await db.from("videos").select("*").order("created_at",{ascending:false});if(error)return message(error.message);$("videos").innerHTML=data.length?data.map(v=>'<div class="video"><h3>'+esc(v.title)+'</h3><p>'+esc(v.description||"")+'</p><b>KSh '+v.price+'</b><button onclick="buy('+v.id+','+v.price+')">Buy / View</button></div>').join(""):"No videos yet."}
+function esc(x){return String(x||"").replace(/[<>&"]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]))}
+async function buy(id,price){if(!confirm("This video costs KSh "+price+". Continue?"))return;let {error}=await db.from("purchases").insert({user_id:me.id,video_id:id,amount:price});if(error)return message(error.message);let {data}=await db.from("videos").select("video_url").eq("id",id).single();if(data&&data.video_url)location.href=data.video_url}
+async function upload(){let f=$("file").files[0],title=$("title").value;if(!f||!title)return message("Enter a title and select a video.");let path=crypto.randomUUID()+"-"+f.name.replace(/[^a-zA-Z0-9._-]/g,"_");let {error}=await db.storage.from("videos").upload(path,f);if(error)return message(error.message);let {data:u}=db.storage.from("videos").getPublicUrl(path);let r=await db.from("videos").insert({title,description:$("desc").value,price:Number($("price").value||10),video_url:u.publicUrl,storage_path:path});message(r.error?r.error.message:"Uploaded");load()}
+async function users(){let {data,error}=await db.from("profiles").select("name,email,role,created_at").order("created_at",{ascending:false});if(error)return message(error.message);$("userlist").innerHTML=data.map(u=>'<div class="video">'+esc(u.name||"")+"<br>"+esc(u.email)+"<br>Role: "+esc(u.role)+"</div>").join("")}
+async function logout(){await db.auth.signOut();location.reload()}
+db.auth.getSession().then(async x=>{if(x.data.session){me=x.data.session.user;await start()}})
+</script></body></html>
