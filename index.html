@@ -1,28 +1,14 @@
-
-  <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
-
 <meta charset="utf-8">
-
-<meta name="viewport"
-      content="width=device-width,initial-scale=1">
-
-<meta name="theme-color"
-      content="#071b2d">
-
-<meta name="description"
-      content="SARITTRAFF MEDIA KENYA - Kenyan online marketplace, entertainment, news and more.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071b2d">
+<meta name="description" content="SARITTRAFF MEDIA KENYA - Kenyan online marketplace, baby shop, entertainment and news.">
 
 <title>SARITTRAFF MEDIA KENYA</title>
 
-
 <style>
-
-/* =========================
-   GENERAL
-========================= */
-
 :root{
   --navy:#071b2d;
   --navy2:#0d304b;
@@ -30,2737 +16,1957 @@
   --green2:#22b95f;
   --red:#c91429;
   --gold:#f4bd32;
+  --pink:#ff6f91;
+  --baby:#fff1f6;
   --bg:#f3f7f5;
   --text:#132019;
   --muted:#66756d;
-  --white:#ffffff;
+  --white:#fff;
   --shadow:0 12px 35px rgba(7,27,45,.12);
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
-  margin:0;
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Arial,
-    sans-serif;
-
-  color:var(--text);
-  background:var(--bg);
+ margin:0;
+ font-family:Arial,system-ui,sans-serif;
+ background:var(--bg);
+ color:var(--text);
 }
 
-button,
-input,
-textarea{
-  font:inherit;
-}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
 
-button{
-  cursor:pointer;
-}
+.hidden{display:none!important}
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-
-/* =========================
-   TOP BAR
-========================= */
-
+/* TOP */
 .topline{
-
-  background:#06131e;
-
-  color:#fff;
-
-  padding:8px 18px;
-
-  font-size:13px;
-
-  display:flex;
-
-  justify-content:space-between;
-
-  gap:15px;
-
-  flex-wrap:wrap;
-
+ background:#06131e;
+ color:#fff;
+ padding:8px 18px;
+ font-size:13px;
+ display:flex;
+ justify-content:space-between;
+ flex-wrap:wrap;
 }
 
-.topline span:last-child{
-  opacity:.85;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 header{
-
-  position:sticky;
-
-  top:0;
-
-  z-index:50;
-
-  background:rgba(7,27,45,.98);
-
-  color:#fff;
-
-  box-shadow:0 5px 25px #0003;
-
+ position:sticky;
+ top:0;
+ z-index:100;
+ background:rgba(7,27,45,.98);
+ color:#fff;
+ box-shadow:0 5px 25px #0003;
 }
 
 .nav{
+ max-width:1250px;
+ margin:auto;
+ padding:13px 18px;
+ display:flex;
+ align-items:center;
+ gap:14px;
+}
 
-  max-width:1200px;
-
-  margin:auto;
-
-  padding:14px 18px;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:18px;
-
+.menu-btn{
+ width:45px;
+ height:42px;
+ border:0;
+ border-radius:12px;
+ background:#ffffff18;
+ color:#fff;
+ font-size:24px;
 }
 
 .brand{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  font-weight:950;
-
-  font-size:21px;
-
-  white-space:nowrap;
-
+ display:flex;
+ align-items:center;
+ gap:9px;
+ font-weight:900;
+ font-size:19px;
+ white-space:nowrap;
 }
 
 .flag{
-
-  width:36px;
-
-  height:36px;
-
-  border-radius:50%;
-
-  overflow:hidden;
-
-  background:
-    linear-gradient(
-      #111 0 30%,
-      #fff 30% 35%,
-      #c91429 35% 65%,
-      #fff 65% 70%,
-      #159447 70%
-    );
-
-  border:2px solid #fff;
-
+ width:35px;
+ height:35px;
+ border-radius:50%;
+ background:linear-gradient(#111 0 30%,#fff 30% 35%,#c91429 35% 65%,#fff 65% 70%,#159447 70%);
+ border:2px solid #fff;
 }
 
-.search{
-
-  flex:1;
-
-}
+.search{flex:1}
 
 .search input{
-
-  width:100%;
-
-  padding:12px 18px;
-
-  border:0;
-
-  border-radius:30px;
-
-  outline:0;
-
-  background:#fff;
-
-  color:#17202a;
-
-}
-
-.navlinks{
-
-  display:flex;
-
-  gap:8px;
-
-}
-
-.navlinks a{
-
-  border:1px solid #ffffff35;
-
-  color:#fff;
-
-  padding:10px 12px;
-
-  border-radius:12px;
-
+ width:100%;
+ padding:11px 17px;
+ border:0;
+ border-radius:30px;
+ outline:0;
 }
 
 #logout{
-
-  width:auto;
-
-  padding:10px 16px;
-
-  background:#fff;
-
-  color:var(--navy);
-
-  border:0;
-
-  border-radius:12px;
-
-  font-weight:800;
-
+ width:auto;
+ padding:10px 15px;
+ background:#fff;
+ color:var(--navy);
+ border:0;
+ border-radius:11px;
+ font-weight:800;
 }
 
+/* SIDE MENU */
+.side-menu{
+ position:fixed;
+ left:-330px;
+ top:0;
+ width:310px;
+ height:100vh;
+ background:#fff;
+ z-index:200;
+ box-shadow:8px 0 30px #0003;
+ transition:.3s;
+ overflow-y:auto;
+}
 
-/* =========================
-   NEWS TICKER
-========================= */
+.side-menu.open{left:0}
 
+.side-head{
+ background:linear-gradient(135deg,var(--navy),#11643a);
+ color:#fff;
+ padding:25px 20px;
+}
+
+.side-head h2{margin:0 0 5px}
+
+.close-menu{
+ float:right;
+ background:#ffffff22;
+ color:#fff;
+ border:0;
+ border-radius:10px;
+ padding:7px 11px;
+ font-size:20px;
+}
+
+.menu-list{
+ padding:12px;
+}
+
+.menu-list button,
+.menu-list a{
+ display:block;
+ width:100%;
+ padding:14px;
+ margin:5px 0;
+ border:0;
+ border-radius:12px;
+ background:#f1f5f3;
+ text-align:left;
+ font-weight:800;
+ color:var(--navy);
+}
+
+.menu-list button:hover,
+.menu-list a:hover{
+ background:#dff4e7;
+}
+
+.menu-login{
+ padding:15px;
+ border-top:1px solid #eee;
+}
+
+.menu-login input{
+ width:100%;
+ padding:11px;
+ margin:5px 0;
+ border:1px solid #ccd8d2;
+ border-radius:10px;
+}
+
+.menu-login button{
+ width:100%;
+ padding:11px;
+ margin:5px 0;
+ border:0;
+ border-radius:10px;
+ background:var(--green);
+ color:#fff;
+ font-weight:800;
+}
+
+.overlay{
+ position:fixed;
+ inset:0;
+ background:#0008;
+ z-index:150;
+ display:none;
+}
+
+.overlay.show{display:block}
+
+/* TICKER */
 .ticker{
-
-  background:#fff;
-
-  border-bottom:1px solid #e2e9e5;
-
-  overflow:hidden;
-
+ background:#fff;
+ border-bottom:1px solid #e2e9e5;
+ overflow:hidden;
 }
 
 .ticker-inner{
-
-  max-width:1200px;
-
-  margin:auto;
-
-  padding:9px 18px;
-
-  white-space:nowrap;
-
-  overflow:auto;
-
+ max-width:1250px;
+ margin:auto;
+ padding:9px 18px;
+ white-space:nowrap;
+ overflow:auto;
 }
 
 .ticker strong{
-
-  color:var(--red);
-
-  margin-right:12px;
-
+ color:var(--red);
+ margin-right:12px;
 }
 
-
-/* =========================
-   MAIN
-========================= */
-
+/* MAIN */
 main{
-
-  max-width:1200px;
-
-  margin:auto;
-
-  padding:20px 18px 60px;
-
+ max-width:1250px;
+ margin:auto;
+ padding:20px 18px 60px;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
+/* HERO */
 .hero{
-
-  min-height:440px;
-
-  border-radius:28px;
-
-  overflow:hidden;
-
-  position:relative;
-
-  color:#fff;
-
-  background:
-
-    linear-gradient(
-      90deg,
-      rgba(4,20,32,.97),
-      rgba(4,20,32,.65),
-      rgba(4,20,32,.15)
-    ),
-
-    url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1600&q=85")
-
-    center/cover;
-
-  box-shadow:var(--shadow);
-
-  display:flex;
-
-  align-items:center;
-
+ min-height:470px;
+ border-radius:28px;
+ overflow:hidden;
+ position:relative;
+ color:#fff;
+ background:
+ linear-gradient(90deg,rgba(4,20,32,.96),rgba(4,20,32,.62),rgba(4,20,32,.12)),
+ url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1600&q=85")
+ center/cover;
+ box-shadow:var(--shadow);
+ display:flex;
+ align-items:center;
 }
 
 .hero-content{
-
-  max-width:700px;
-
-  padding:48px;
-
+ max-width:700px;
+ padding:48px;
 }
 
 .eyebrow{
-
-  display:inline-block;
-
-  background:var(--gold);
-
-  color:#111;
-
-  padding:7px 13px;
-
-  border-radius:999px;
-
-  font-size:12px;
-
-  font-weight:900;
-
-  text-transform:uppercase;
-
-  letter-spacing:.08em;
-
+ display:inline-block;
+ background:var(--gold);
+ color:#111;
+ padding:7px 13px;
+ border-radius:999px;
+ font-size:12px;
+ font-weight:900;
 }
 
 .hero h1{
-
-  font-size:clamp(38px,6vw,66px);
-
-  line-height:.98;
-
-  margin:18px 0 15px;
-
+ font-size:clamp(38px,6vw,66px);
+ line-height:.98;
+ margin:18px 0 15px;
 }
 
 .hero p{
-
-  font-size:18px;
-
-  line-height:1.6;
-
-  color:#e8f1f5;
-
-  max-width:620px;
-
+ font-size:18px;
+ line-height:1.6;
+ color:#e8f1f5;
 }
 
 .hero-actions{
-
-  display:flex;
-
-  gap:10px;
-
-  flex-wrap:wrap;
-
-  margin-top:22px;
-
+ display:flex;
+ gap:10px;
+ flex-wrap:wrap;
+ margin-top:22px;
 }
 
 .cta{
-
-  border:0;
-
-  border-radius:13px;
-
-  padding:13px 18px;
-
-  font-weight:800;
-
-  background:var(--green2);
-
-  color:#fff;
-
+ border:0;
+ border-radius:13px;
+ padding:13px 18px;
+ font-weight:800;
+ background:var(--green2);
+ color:#fff;
 }
 
 .cta.alt{
-
-  background:#fff;
-
-  color:var(--navy);
-
+ background:#fff;
+ color:var(--navy);
 }
 
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section{
-
-  margin-top:36px;
-
-}
+/* SECTIONS */
+.section{margin-top:36px}
 
 .section-head{
-
-  display:flex;
-
-  align-items:end;
-
-  justify-content:space-between;
-
-  gap:12px;
-
-  margin-bottom:15px;
-
+ display:flex;
+ align-items:end;
+ justify-content:space-between;
+ margin-bottom:15px;
 }
 
 .section-head h2{
-
-  margin:0;
-
-  font-size:28px;
-
+ margin:0;
+ font-size:28px;
 }
 
 .section-head p{
-
-  margin:4px 0 0;
-
-  color:var(--muted);
-
+ color:var(--muted);
 }
 
-
-/* =========================
-   CATEGORIES
-========================= */
-
+/* CATEGORY */
 .grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:16px;
-
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:16px;
 }
 
 .category{
-
-  min-height:155px;
-
-  border-radius:20px;
-
-  overflow:hidden;
-
-  position:relative;
-
-  color:#fff;
-
-  display:flex;
-
-  align-items:end;
-
-  padding:17px;
-
-  font-weight:900;
-
-  font-size:19px;
-
-  background-size:cover;
-
-  background-position:center;
-
-  box-shadow:var(--shadow);
-
+ min-height:155px;
+ border-radius:20px;
+ overflow:hidden;
+ position:relative;
+ color:#fff;
+ display:flex;
+ align-items:end;
+ padding:17px;
+ font-weight:900;
+ font-size:19px;
+ background-size:cover;
+ background-position:center;
+ box-shadow:var(--shadow);
 }
 
 .category:after{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-    linear-gradient(
-      transparent,
-      #071b2dcc
-    );
-
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(transparent,#071b2dcc);
 }
 
 .category span{
-
-  position:relative;
-
-  z-index:1;
-
+ position:relative;
+ z-index:1;
 }
 
-
-/* =========================
-   CARDS
-========================= */
-
+/* CARDS */
 .card{
-
-  background:#fff;
-
-  border-radius:22px;
-
-  padding:22px;
-
-  box-shadow:var(--shadow);
-
-  border:1px solid #e5ece8;
-
-  margin:16px 0;
-
+ background:#fff;
+ border-radius:22px;
+ padding:22px;
+ box-shadow:var(--shadow);
+ border:1px solid #e5ece8;
+ margin:16px 0;
 }
-
-.card h2{
-
-  margin-top:0;
-
-}
-
-
-/* =========================
-   MESSAGE
-========================= */
 
 #msg .card{
-
-  border-left:
-    5px solid
-    var(--green);
-
+ border-left:5px solid var(--green);
 }
 
-
-/* =========================
-   AUTH
-========================= */
-
+/* AUTH */
 #auth{
-
-  max-width:520px;
-
-  margin:35px auto;
-
+ max-width:520px;
+ margin:35px auto;
 }
 
 #auth input,
 #auth textarea,
 #admin input,
 #admin textarea{
-
-  width:100%;
-
-  padding:13px 14px;
-
-  border:1px solid #ccd9d3;
-
-  border-radius:12px;
-
-  margin:6px 0;
-
-  outline:none;
-
-  background:#fbfdfc;
-
-}
-
-#auth input:focus,
-#admin input:focus,
-#admin textarea:focus{
-
-  border-color:
-    var(--green);
-
+ width:100%;
+ padding:13px 14px;
+ border:1px solid #ccd9d3;
+ border-radius:12px;
+ margin:6px 0;
+ outline:none;
+ background:#fbfdfc;
 }
 
 #auth button,
 #admin button{
-
-  width:100%;
-
-  padding:13px;
-
-  margin:6px 0;
-
-  border:0;
-
-  border-radius:12px;
-
-  background:var(--green);
-
-  color:#fff;
-
-  font-weight:800;
-
+ width:100%;
+ padding:13px;
+ margin:6px 0;
+ border:0;
+ border-radius:12px;
+ background:var(--green);
+ color:#fff;
+ font-weight:800;
 }
 
-
-/* =========================
-   MARKETPLACE
-========================= */
-
+/* MARKET */
 .market-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:16px;
-
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:16px;
 }
 
 .video{
-
-  background:#fff;
-
-  border:1px solid #e2e9e5;
-
-  border-radius:20px;
-
-  padding:18px;
-
-  box-shadow:
-    0 5px 18px #00000008;
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:8px;
-
-  transition:.2s;
-
+ background:#fff;
+ border:1px solid #e2e9e5;
+ border-radius:20px;
+ padding:18px;
+ box-shadow:0 5px 18px #00000008;
+ display:flex;
+ flex-direction:column;
+ gap:8px;
+ transition:.2s;
 }
 
 .video:hover{
-
-  transform:translateY(-3px);
-
-  box-shadow:
-    0 15px 30px #0002;
-
+ transform:translateY(-3px);
+ box-shadow:0 15px 30px #0002;
 }
 
-.video h3{
-
-  margin:0;
-
-  font-size:19px;
-
-}
-
+.video h3{margin:0}
 .video p{
-
-  color:var(--muted);
-
-  line-height:1.5;
-
-  flex:1;
-
+ color:var(--muted);
+ line-height:1.5;
+ flex:1;
 }
 
 .video b{
+ font-size:20px;
+ color:var(--green);
+}
 
-  font-size:20px;
-
-  color:var(--green);
-
+.buy-button,
+.delete-button{
+ border:0;
+ border-radius:12px;
+ padding:12px;
+ font-weight:800;
+ width:100%;
 }
 
 .buy-button{
-
-  border:0;
-
-  border-radius:12px;
-
-  background:var(--navy);
-
-  color:#fff;
-
-  padding:12px;
-
-  font-weight:800;
-
-  width:100%;
-
+ background:var(--navy);
+ color:#fff;
 }
 
 .delete-button{
-
-  border:0;
-
-  border-radius:12px;
-
-  background:var(--red)!important;
-
-  color:#fff;
-
-  padding:12px;
-
-  font-weight:800;
-
-  width:100%;
-
+ background:var(--red)!important;
+ color:#fff;
 }
 
-
-/* =========================
-   ADMIN
-========================= */
-
+/* ADMIN */
 #admin{
-
-  border-top:
-    5px solid
-    var(--green);
-
+ border-top:5px solid var(--green);
 }
 
 .admin-label{
-
-  display:inline-block;
-
-  background:#e8f7ed;
-
-  color:#087632;
-
-  border-radius:20px;
-
-  padding:6px 10px;
-
-  font-size:12px;
-
-  font-weight:900;
-
+ display:inline-block;
+ background:#e8f7ed;
+ color:#087632;
+ border-radius:20px;
+ padding:6px 10px;
+ font-size:12px;
+ font-weight:900;
 }
 
+/* BABY SHOP */
+.baby-shop{
+ margin-top:40px;
+ border-radius:28px;
+ overflow:hidden;
+ box-shadow:var(--shadow);
+ background:var(--baby);
+}
 
-/* =========================
-   NEWS
-========================= */
+.baby-hero{
+ min-height:370px;
+ padding:45px;
+ color:#fff;
+ display:flex;
+ align-items:center;
+ background:
+ linear-gradient(90deg,rgba(48,18,32,.82),rgba(48,18,32,.35)),
+ url("https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1600&q=85")
+ center/cover;
+}
 
+.baby-hero h2{
+ font-size:clamp(38px,6vw,65px);
+ margin:8px 0;
+}
+
+.baby-hero p{
+ max-width:600px;
+ font-size:18px;
+ line-height:1.6;
+}
+
+.baby-badge{
+ display:inline-block;
+ background:#ffb6c9;
+ color:#4a1727;
+ padding:8px 14px;
+ border-radius:30px;
+ font-weight:900;
+}
+
+.baby-products{
+ padding:25px;
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:15px;
+}
+
+.baby-card{
+ background:#fff;
+ border-radius:20px;
+ overflow:hidden;
+ box-shadow:0 7px 20px #0001;
+}
+
+.baby-card img{
+ width:100%;
+ height:190px;
+ object-fit:cover;
+}
+
+.baby-info{
+ padding:15px;
+}
+
+.baby-info h3{margin:0 0 7px}
+
+.baby-price{
+ color:#d62d63;
+ font-size:20px;
+ font-weight:900;
+}
+
+.cart-btn{
+ width:100%;
+ padding:11px;
+ margin-top:9px;
+ border:0;
+ border-radius:10px;
+ background:#ff6f91;
+ color:#fff;
+ font-weight:900;
+}
+
+.cart{
+ margin:25px;
+ padding:20px;
+ border-radius:20px;
+ background:#fff;
+ border:2px dashed #ff9db5;
+}
+
+.cart h3{margin-top:0}
+
+.cart-item{
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ padding:9px 0;
+ border-bottom:1px solid #eee;
+}
+
+.order-buttons{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+ margin-top:15px;
+}
+
+.whatsapp{
+ background:#159447!important;
+ color:#fff!important;
+}
+
+.call{
+ background:var(--navy)!important;
+ color:#fff!important;
+}
+
+.coming{
+ margin-top:12px;
+ padding:15px;
+ border-radius:13px;
+ background:#fff8df;
+ border:1px solid #f0d36b;
+ color:#6b5100;
+ font-weight:800;
+}
+
+/* NEWS */
 .news-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:17px;
-
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:17px;
 }
 
 .news{
-
-  background:#fff;
-
-  border-radius:20px;
-
-  overflow:hidden;
-
-  box-shadow:var(--shadow);
-
-  border:1px solid #e4ebe7;
-
+ background:#fff;
+ border-radius:20px;
+ overflow:hidden;
+ box-shadow:var(--shadow);
+ border:1px solid #e4ebe7;
 }
 
 .news img{
-
-  width:100%;
-
-  height:180px;
-
-  object-fit:cover;
-
-  display:block;
-
+ width:100%;
+ height:180px;
+ object-fit:cover;
+ display:block;
 }
 
-.news-body{
-
-  padding:17px;
-
-}
+.news-body{padding:17px}
 
 .news-tag{
-
-  color:var(--green);
-
-  font-weight:900;
-
-  font-size:12px;
-
-  text-transform:uppercase;
-
+ color:var(--green);
+ font-weight:900;
+ font-size:12px;
+ text-transform:uppercase;
 }
 
 .news h3{
-
-  margin:7px 0;
-
-  font-size:19px;
-
-  line-height:1.25;
-
+ margin:7px 0;
+ font-size:19px;
 }
 
 .news p{
-
-  color:var(--muted);
-
-  line-height:1.45;
-
-  margin-bottom:12px;
-
+ color:var(--muted);
+ line-height:1.45;
 }
 
 .read{
-
-  font-weight:800;
-
-  color:var(--navy);
-
+ font-weight:800;
+ color:var(--navy);
 }
 
 .news-note{
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--navy),
-      #103c58
-    );
-
-  color:#fff;
-
-  border-radius:20px;
-
-  padding:24px;
-
-  margin-top:18px;
-
+ background:linear-gradient(135deg,var(--navy),#103c58);
+ color:#fff;
+ border-radius:20px;
+ padding:24px;
+ margin-top:18px;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
+/* FOOTER */
 footer{
-
-  background:#06131e;
-
-  color:#dbe7ee;
-
-  margin-top:35px;
-
-  padding:35px 18px;
-
+ background:#06131e;
+ color:#dbe7ee;
+ margin-top:35px;
+ padding:35px 18px;
 }
 
 .footer-inner{
-
-  max-width:1200px;
-
-  margin:auto;
-
-  display:grid;
-
-  grid-template-columns:
-    2fr 1fr 1fr;
-
-  gap:25px;
-
+ max-width:1250px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:2fr 1fr 1fr;
+ gap:25px;
 }
 
-footer h3{
-
-  color:#fff;
-
-  margin-top:0;
-
-}
-
+footer h3{color:#fff}
 footer p{
-
-  line-height:1.6;
-
-  color:#9fb0bb;
-
+ line-height:1.6;
+ color:#9fb0bb;
 }
 
 .copyright{
-
-  border-top:
-    1px solid
-    #ffffff18;
-
-  margin-top:25px;
-
-  padding-top:18px;
-
-  text-align:center;
-
-  color:#aebdc6;
-
-  font-size:14px;
-
+ border-top:1px solid #ffffff18;
+ margin-top:25px;
+ padding-top:18px;
+ text-align:center;
+ color:#aebdc6;
 }
 
-
-/* =========================
-   HIDDEN
-========================= */
-
-.hidden{
-
-  display:none!important;
-
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
+/* MOBILE */
 @media(max-width:900px){
-
-  .grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
-  }
-
-  .market-grid,
-  .news-grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
-  }
-
-  .footer-inner{
-
-    grid-template-columns:
-      1fr 1fr;
-
-  }
-
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .market-grid,.news-grid{grid-template-columns:repeat(2,1fr)}
+ .baby-products{grid-template-columns:repeat(2,1fr)}
 }
-
 
 @media(max-width:650px){
-
-  .topline{
-
-    font-size:11px;
-
-  }
-
-  .nav{
-
-    flex-wrap:wrap;
-
-  }
-
-  .brand{
-
-    font-size:18px;
-
-  }
-
-  .search{
-
-    order:3;
-
-    flex-basis:100%;
-
-  }
-
-  .navlinks{
-
-    display:none;
-
-  }
-
-  .hero{
-
-    min-height:440px;
-
-  }
-
-  .hero-content{
-
-    padding:28px 22px;
-
-  }
-
-  .hero h1{
-
-    font-size:40px;
-
-  }
-
-  .grid,
-  .market-grid,
-  .news-grid{
-
-    grid-template-columns:
-      1fr 1fr;
-
-    gap:10px;
-
-  }
-
-  .category{
-
-    min-height:125px;
-
-    padding:12px;
-
-    font-size:16px;
-
-  }
-
-  .card{
-
-    padding:16px;
-
-  }
-
-  .section-head{
-
-    display:block;
-
-  }
-
-  .footer-inner{
-
-    grid-template-columns:
-      1fr;
-
-  }
-
+ .topline{font-size:11px}
+ .nav{flex-wrap:wrap}
+ .brand{font-size:16px}
+ .search{order:3;flex-basis:100%}
+ .hero{min-height:440px}
+ .hero-content{padding:28px 22px}
+ .hero h1{font-size:40px}
+ .grid,.market-grid,.news-grid{grid-template-columns:1fr 1fr;gap:10px}
+ .category{min-height:125px;padding:12px;font-size:16px}
+ .card{padding:16px}
+ .baby-products{grid-template-columns:1fr 1fr;padding:12px}
+ .baby-hero{padding:28px 20px}
+ .baby-hero h2{font-size:40px}
+ .order-buttons{grid-template-columns:1fr}
+ .footer-inner{grid-template-columns:1fr}
 }
-
 
 @media(max-width:420px){
-
-  .grid,
-  .market-grid,
-  .news-grid{
-
-    grid-template-columns:
-      1fr;
-
-  }
-
+ .grid,.market-grid,.news-grid,.baby-products{
+  grid-template-columns:1fr;
+ }
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     TOP BAR
-========================= -->
-
 <div class="topline">
-
-  <span>
-    🇰🇪 Proudly Kenyan • SARITTRAFF MEDIA KENYA
-  </span>
-
-  <span>
-    Kenya • Africa • The World
-  </span>
-
+ <span>🇰🇪 Proudly Kenyan • SARITTRAFF MEDIA KENYA</span>
+ <span>Kenya • Africa • The World</span>
 </div>
 
+<!-- SIDE MENU -->
+<div id="overlay" class="overlay" onclick="closeMenu()"></div>
 
-<!-- =========================
-     HEADER
-========================= -->
+<aside id="sideMenu" class="side-menu">
+
+ <div class="side-head">
+  <button class="close-menu" onclick="closeMenu()">×</button>
+  <h2>🇰🇪 SARITTRAFF</h2>
+  <div>MEDIA KENYA</div>
+ </div>
+
+ <div class="menu-list">
+
+  <a href="#home" onclick="closeMenu()">🏠 Home</a>
+  <a href="#shop" onclick="closeMenu()">🛍️ Marketplace</a>
+  <a href="#megan" onclick="closeMenu()">👶 Megan Baby Shop</a>
+  <a href="#news" onclick="closeMenu()">📰 Kenya & World News</a>
+  <a href="#about" onclick="closeMenu()">ℹ️ About Us</a>
+
+ </div>
+
+ <div class="menu-login">
+
+  <h3>🔐 Login / Register</h3>
+
+  <input id="menuName" placeholder="Name for registration">
+
+  <input id="menuEmail" type="email" placeholder="Email">
+
+  <input id="menuPassword" type="password" placeholder="Password">
+
+  <button onclick="menuRegister()">Create Account</button>
+
+  <button onclick="menuLogin()" style="background:#071b2d">
+   Sign In
+  </button>
+
+ </div>
+
+</aside>
 
 <header>
+ <nav class="nav">
 
-  <nav class="nav">
+  <button class="menu-btn" onclick="openMenu()">☰</button>
 
-    <a
-      class="brand"
-      href="#"
-    >
+  <a class="brand" href="#home">
+   <span class="flag"></span>
+   SARITTRAFF MEDIA KENYA
+  </a>
 
-      <span class="flag"></span>
-
-      SARITTRAFF MEDIA KENYA
-
-    </a>
-
-
-    <div class="search">
-
-      <input
-        id="siteSearch"
-        type="search"
-        placeholder="Search products..."
-        oninput="searchProducts()"
-      >
-
-    </div>
-
-
-    <div class="navlinks">
-
-      <a href="#shop">
-        Shop
-      </a>
-
-      <a href="#news">
-        News
-      </a>
-
-      <a href="#about">
-        About
-      </a>
-
-    </div>
-
-
-    <button
-      id="logout"
-      class="hidden"
-      onclick="logout()"
-    >
-      Logout
-    </button>
-
-  </nav>
-
-</header>
-
-
-<!-- =========================
-     TICKER
-========================= -->
-
-<div class="ticker">
-
-  <div class="ticker-inner">
-
-    <strong>
-      NEWS
-    </strong>
-
-    Kenya •
-    Africa •
-    Business •
-    Technology •
-    Sports •
-    Entertainment •
-    World
-
+  <div class="search">
+   <input
+    id="siteSearch"
+    type="search"
+    placeholder="Search marketplace..."
+    oninput="searchProducts()">
   </div>
 
+  <button id="logout" class="hidden" onclick="logout()">
+   Logout
+  </button>
+
+ </nav>
+</header>
+
+<div class="ticker">
+ <div class="ticker-inner">
+  <strong>NEWS</strong>
+  Kenya • Africa • Business • Technology • Sports • Entertainment • World
+ </div>
 </div>
 
-
-<main>
-
-
-<!-- =========================
-     HERO
-========================= -->
+<main id="home">
 
 <section class="hero">
 
-  <div class="hero-content">
+ <div class="hero-content">
 
-    <span class="eyebrow">
-      SARITTRAFF MEDIA KENYA
-    </span>
+  <span class="eyebrow">SARITTRAFF MEDIA KENYA</span>
 
+  <h1>
+   Kenya's place<br>
+   to shop & discover.
+  </h1>
 
-    <h1>
+  <p>
+   Shop, discover, stay informed and connect with
+   Kenyan businesses and services from one modern
+   online platform.
+  </p>
 
-      Kenya's place
-      <br>
-
-      to shop & discover.
-
-    </h1>
-
-
-    <p>
-
-      Welcome to SARITTRAFF MEDIA KENYA —
-      a modern Kenyan platform bringing
-      shopping, entertainment, technology,
-      lifestyle and stories from Kenya and
-      around the world together.
-
-    </p>
-
-
-    <div class="hero-actions">
-
-      <a
-        class="cta"
-        href="#shop"
-      >
-        Start Shopping
-      </a>
-
-
-      <a
-        class="cta alt"
-        href="#news"
-      >
-        Latest News
-      </a>
-
-    </div>
-
+  <div class="hero-actions">
+   <a class="cta" href="#shop">Start Shopping</a>
+   <a class="cta alt" href="#megan">👶 Megan Baby Shop</a>
   </div>
+
+ </div>
 
 </section>
 
-
-<!-- =========================
-     CATEGORIES
-========================= -->
-
+<!-- CATEGORIES -->
 <section class="section">
 
-  <div class="section-head">
-
-    <div>
-
-      <h2>
-        Explore Kenya 🇰🇪
-      </h2>
-
-      <p>
-        Popular things for everyday Kenyan life.
-      </p>
-
-    </div>
-
+ <div class="section-head">
+  <div>
+   <h2>Explore Kenya 🇰🇪</h2>
+   <p>Popular things for everyday Kenyan life.</p>
   </div>
+ </div>
 
+ <div class="grid">
 
-  <div class="grid">
+  <a class="category"
+   style="background-image:url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=700&q=80')"
+   href="#shop">
+   <span>Fashion & Style</span>
+  </a>
 
+  <a class="category"
+   style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=700&q=80')"
+   href="#shop">
+   <span>Shopping & Deals</span>
+  </a>
 
-    <a
-      class="category"
-      style="background-image:url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=700&q=80')"
-      href="#shop"
-    >
+  <a class="category"
+   style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=700&q=80')"
+   href="#shop">
+   <span>Entertainment</span>
+  </a>
 
-      <span>
-        Fashion & Style
-      </span>
+  <a class="category"
+   style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80')"
+   href="#shop">
+   <span>Tech & Gadgets</span>
+  </a>
 
-    </a>
-
-
-    <a
-      class="category"
-      style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=700&q=80')"
-      href="#shop"
-    >
-
-      <span>
-        Shopping & Deals
-      </span>
-
-    </a>
-
-
-    <a
-      class="category"
-      style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=700&q=80')"
-      href="#shop"
-    >
-
-      <span>
-        Entertainment
-      </span>
-
-    </a>
-
-
-    <a
-      class="category"
-      style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80')"
-      href="#shop"
-    >
-
-      <span>
-        Tech & Gadgets
-      </span>
-
-    </a>
-
-
-  </div>
-
+ </div>
 </section>
-
-
-<!-- MESSAGE -->
 
 <div id="msg"></div>
 
+<!-- ORIGINAL AUTH -->
+<section id="auth" class="card">
 
-<!-- =========================
-     LOGIN / REGISTER
-========================= -->
+ <h2>Welcome to SARITTRAFF MEDIA KENYA</h2>
 
-<section
-  id="auth"
-  class="card"
->
+ <p style="color:var(--muted)">
+  Create an account or sign in to continue.
+ </p>
 
-  <h2>
-    Welcome to SARITTRAFF MEDIA KENYA
-  </h2>
+ <input id="name" placeholder="Name (registration)">
+ <input id="email" type="email" placeholder="Email">
+ <input id="password" type="password" placeholder="Password">
 
+ <button type="button" onclick="register()">
+  Create Account
+ </button>
 
-  <p style="color:var(--muted)">
-
-    Create an account or sign in to continue.
-
-  </p>
-
-
-  <input
-    id="name"
-    placeholder="Name (registration)"
-  >
-
-
-  <input
-    id="email"
-    type="email"
-    placeholder="Email"
-  >
-
-
-  <input
-    id="password"
-    type="password"
-    placeholder="Password"
-  >
-
-
-  <button
-    type="button"
-    onclick="register()"
-  >
-
-    Create Account
-
-  </button>
-
-
-  <button
-    type="button"
-    onclick="login()"
-    style="background:var(--navy)"
-  >
-
-    Sign In
-
-  </button>
+ <button type="button" onclick="login()" style="background:var(--navy)">
+  Sign In
+ </button>
 
 </section>
 
+<section id="app" class="hidden">
 
-<!-- =========================
-     APP
-========================= -->
+<!-- MARKETPLACE -->
+<section id="shop" class="card">
 
-<section
-  id="app"
-  class="hidden"
->
-
-
-<!-- =========================
-     SHOP
-========================= -->
-
-<section
-  id="shop"
-  class="card"
->
-
-  <div class="section-head">
-
-    <div>
-
-      <h2>
-        SARITTRAFF Marketplace 🛍️
-      </h2>
-
-      <p>
-        Discover products and entertainment available in the marketplace.
-      </p>
-
-    </div>
-
+ <div class="section-head">
+  <div>
+   <h2>SARITTRAFF Marketplace 🛍️</h2>
+   <p>Discover products and entertainment available in the marketplace.</p>
   </div>
+ </div>
 
-
-  <div
-    id="videos"
-    class="market-grid"
-  >
-
-    Loading...
-
-  </div>
+ <div id="videos" class="market-grid">
+  Loading...
+ </div>
 
 </section>
 
+<!-- ADMIN -->
+<div id="admin" class="card hidden">
 
-<!-- =========================
-     ADMIN
-========================= -->
+ <span class="admin-label">ADMINISTRATOR</span>
 
-<div
-  id="admin"
-  class="card hidden"
->
+ <h2>Seller / Admin Area</h2>
 
-  <span class="admin-label">
-    ADMINISTRATOR
-  </span>
+ <p style="color:var(--muted)">
+  Manage marketplace items.
+ </p>
 
+ <h3>Add Item</h3>
 
-  <h2>
-    Seller / Admin Area
-  </h2>
+ <input id="title" placeholder="Item title">
 
+ <textarea id="desc" placeholder="Description"></textarea>
 
-  <p style="color:var(--muted)">
+ <input id="price" type="number" value="10" min="0" placeholder="Price in KSh">
 
-    Manage marketplace items.
+ <input id="file" type="file" accept="video/*">
 
-  </p>
+ <button type="button" onclick="upload()">
+  ⬆️ Publish Item
+ </button>
 
+ <h3>Users</h3>
 
-  <h3>
-    Add Item
-  </h3>
+ <button type="button" onclick="users()">
+  View Users
+ </button>
 
-
-  <input
-    id="title"
-    placeholder="Item title"
-  >
-
-
-  <textarea
-    id="desc"
-    placeholder="Description"
-  ></textarea>
-
-
-  <input
-    id="price"
-    type="number"
-    value="10"
-    min="0"
-    placeholder="Price in KSh"
-  >
-
-
-  <input
-    id="file"
-    type="file"
-    accept="video/*"
-  >
-
-
-  <button
-    type="button"
-    onclick="upload()"
-  >
-
-    ⬆️ Publish Item
-
-  </button>
-
-
-  <h3>
-    Users
-  </h3>
-
-
-  <button
-    type="button"
-    onclick="users()"
-  >
-
-    View Users
-
-  </button>
-
-
-  <div id="userlist"></div>
+ <div id="userlist"></div>
 
 </div>
 
+</section>
+
+<!-- MEGAN BABY SHOP -->
+<section id="megan" class="baby-shop">
+
+ <div class="baby-hero">
+
+  <div>
+
+   <span class="baby-badge">
+    👶 MEGAN BABY SHOP
+   </span>
+
+   <h2>
+    Everything<br>
+    Little Ones Love 💕
+   </h2>
+
+   <p>
+    Welcome to Megan Baby Shop — a beautiful
+    Kenyan delivery shop for babies and young
+    families. Choose your favourite items and
+    send your order directly through WhatsApp.
+   </p>
+
+   <a class="cta" href="#babyCart">
+    🛒 View My Cart
+   </a>
+
+  </div>
+
+ </div>
+
+ <div class="baby-products">
+
+  <div class="baby-card">
+   <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=700&q=80">
+   <div class="baby-info">
+    <h3>Baby Clothes Set 👕</h3>
+    <p>Comfortable everyday baby clothing.</p>
+    <div class="baby-price">KSh 1,200</div>
+    <button class="cart-btn" onclick="addBaby('Baby Clothes Set',1200)">
+     Add to Cart
+    </button>
+   </div>
+  </div>
+
+  <div class="baby-card">
+   <img src="https://images.unsplash.com/photo-1604917019116-7b8f7b1f9c4f?auto=format&fit=crop&w=700&q=80">
+   <div class="baby-info">
+    <h3>Baby Shoes 👟</h3>
+    <p>Soft and comfortable little shoes.</p>
+    <div class="baby-price">KSh 850</div>
+    <button class="cart-btn" onclick="addBaby('Baby Shoes',850)">
+     Add to Cart
+    </button>
+   </div>
+  </div>
+
+  <div class="baby-card">
+   <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=700&q=80">
+   <div class="baby-info">
+    <h3>Baby Toys 🧸</h3>
+    <p>Fun toys for your little one.</p>
+    <div class="baby-price">KSh 700</div>
+    <button class="cart-btn" onclick="addBaby('Baby Toys',700)">
+     Add to Cart
+    </button>
+   </div>
+  </div>
+
+  <div class="baby-card">
+   <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=700&q=80">
+   <div class="baby-info">
+    <h3>Baby Blanket 🛏️</h3>
+    <p>Warm and soft blanket for babies.</p>
+    <div class="baby-price">KSh 1,500</div>
+    <button class="cart-btn" onclick="addBaby('Baby Blanket',1500)">
+     Add to Cart
+    </button>
+   </div>
+  </div>
+
+  <div class="baby-card">
+   <img src="https://images.unsplash.com/photo-1584839404042-8bcf8e8e7e8e?auto=format&fit=crop&w=700&q=80">
+   <div class="baby-info">
+    <h3>Feeding Set 🍼</h3>
+    <p>Useful feeding accessories for babies.</p>
+    <div class="baby-price">KSh 950</div>
+    <button class="cart-btn" onclick="addBaby('Baby Feeding Set',950)">
+     Add to Cart
+    </button>
+   </div>
+  </div>
+
+  <div class="baby-card">
+   <img src="https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?auto=format&fit=crop&w=700&q=80">
+   <div class="baby-info">
+    <h3>Baby Romper 👶</h3>
+    <p>Soft and adorable baby romper.</p>
+    <div class="baby-price">KSh 900</div>
+    <button class="cart-btn" onclick="addBaby('Baby Romper',900)">
+     Add to Cart
+    </button>
+   </div>
+  </div>
+
+  <div class="baby-card">
+   <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=700&q=80">
+   <div class="baby-info">
+    <h3>Baby Care Pack 🧴</h3>
+    <p>Useful everyday baby care items.</p>
+    <div class="baby-price">KSh 1,300</div>
+    <button class="cart-btn" onclick="addBaby('Baby Care Pack',1300)">
+     Add to Cart
+    </button>
+   </div>
+  </div>
+
+  <div class="baby-card">
+   <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=700&q=80">
+   <div class="baby-info">
+    <h3>Baby Gift Box 🎁</h3>
+    <p>A lovely gift for a new baby.</p>
+    <div class="baby-price">KSh 2,500</div>
+    <button class="cart-btn" onclick="addBaby('Baby Gift Box',2500)">
+     Add to Cart
+    </button>
+   </div>
+  </div>
+
+ </div>
+
+ <div id="babyCart" class="cart">
+
+  <h3>🛒 Megan Baby Shop Cart</h3>
+
+  <div id="cartItems">
+   Your cart is empty.
+  </div>
+
+  <h3>
+   Total: KSh <span id="cartTotal">0</span>
+  </h3>
+
+  <div class="coming">
+   💳 ONLINE PAYMENT COMING SOON
+   <br><br>
+   For now, place your order by phone or WhatsApp.
+  </div>
+
+  <div class="order-buttons">
+
+   <a
+    id="whatsappOrder"
+    class="cta whatsapp"
+    target="_blank"
+    href="https://wa.me/254742292042">
+    💬 Order via WhatsApp
+   </a>
+
+   <a
+    class="cta call"
+    href="tel:+254742292042">
+    📞 Call +254 742 292 042
+   </a>
+
+  </div>
+
+ </div>
 
 </section>
 
+<!-- NEWS -->
+<section id="news" class="section">
 
-<!-- =========================
-     NEWS
-========================= -->
-
-<section
-  id="news"
-  class="section"
->
-
-  <div class="section-head">
-
-    <div>
-
-      <h2>
-        Kenya & World News 🌍
-      </h2>
-
-      <p>
-        Follow major stories from Kenya, Africa and around the world.
-      </p>
-
-    </div>
-
+ <div class="section-head">
+  <div>
+   <h2>Kenya & World News 🌍</h2>
+   <p>Follow major stories from Kenya, Africa and around the world.</p>
   </div>
+ </div>
 
+ <div class="news-grid">
 
-  <div class="news-grid">
+  <article class="news">
 
+   <img src="https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=900&q=80">
 
-    <article class="news">
+   <div class="news-body">
+    <div class="news-tag">Kenya</div>
 
-      <img
-        src="https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=900&q=80"
-        alt="Nairobi"
-      >
-
-
-      <div class="news-body">
-
-        <div class="news-tag">
-          Kenya
-        </div>
-
-
-        <h3>
-          Latest stories from Kenya
-        </h3>
-
-
-        <p>
-          Follow national, business, community and political reporting.
-        </p>
-
-
-        <a
-          class="read"
-          href="https://www.citizen.digital/"
-          target="_blank"
-          rel="noopener"
-        >
-
-          Read Citizen Digital →
-
-        </a>
-
-      </div>
-
-    </article>
-
-
-    <article class="news">
-
-      <img
-        src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80"
-        alt="World news"
-      >
-
-
-      <div class="news-body">
-
-        <div class="news-tag">
-          World
-        </div>
-
-
-        <h3>
-          Stories from around the world
-        </h3>
-
-
-        <p>
-          International headlines, business and breaking stories.
-        </p>
-
-
-        <a
-          class="read"
-          href="https://www.reuters.com/world/"
-          target="_blank"
-          rel="noopener"
-        >
-
-          Read Reuters World →
-
-        </a>
-
-      </div>
-
-    </article>
-
-
-    <article class="news">
-
-      <img
-        src="https://images.unsplash.com/photo-1504711434969-e33886168c5c?auto=format&fit=crop&w=900&q=80"
-        alt="Africa news"
-      >
-
-
-      <div class="news-body">
-
-        <div class="news-tag">
-          Africa
-        </div>
-
-
-        <h3>
-          Africa in focus
-        </h3>
-
-
-        <p>
-          Regional news, economy, culture, technology and major events.
-        </p>
-
-
-        <a
-          class="read"
-          href="https://www.bbc.com/news/world/africa"
-          target="_blank"
-          rel="noopener"
-        >
-
-          Read BBC Africa →
-
-        </a>
-
-      </div>
-
-    </article>
-
-
-  </div>
-
-
-  <div class="news-note">
-
-    <h3>
-      Built for Kenya 🇰🇪
-    </h3>
+    <h3>Latest stories from Kenya</h3>
 
     <p>
-      SARITTRAFF MEDIA KENYA brings shopping,
-      entertainment, technology and news together
-      in one mobile-friendly Kenyan platform.
+     Follow national, business, community and political reporting.
     </p>
 
-  </div>
+    <a class="read" href="https://www.citizen.digital/" target="_blank">
+     Read Citizen Digital →
+    </a>
+   </div>
 
+  </article>
 
-</section>
+  <article class="news">
 
+   <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80">
 
-<!-- =========================
-     ABOUT
-========================= -->
+   <div class="news-body">
+    <div class="news-tag">World</div>
 
-<section
-  id="about"
-  class="section card"
->
+    <h3>Stories from around the world</h3>
 
-  <h2>
-    About SARITTRAFF MEDIA KENYA
-  </h2>
+    <p>
+     International headlines, business and breaking stories.
+    </p>
 
+    <a class="read" href="https://www.reuters.com/world/" target="_blank">
+     Read Reuters World →
+    </a>
+   </div>
 
-  <p style="color:var(--muted);line-height:1.7">
+  </article>
 
-    SARITTRAFF MEDIA KENYA is a Kenyan online platform
-    for discovering products, entertainment, technology,
-    lifestyle and information from Kenya and the wider world.
+  <article class="news">
 
+   <img src="https://images.unsplash.com/photo-1504711434969-e33886168c5c?auto=format&fit=crop&w=900&q=80">
+
+   <div class="news-body">
+    <div class="news-tag">Africa</div>
+
+    <h3>Africa in focus</h3>
+
+    <p>
+     Regional news, economy, culture, technology and major events.
+    </p>
+
+    <a class="read" href="https://www.bbc.com/news/world/africa" target="_blank">
+     Read BBC Africa →
+    </a>
+   </div>
+
+  </article>
+
+ </div>
+
+ <div class="news-note">
+
+  <h3>Built for Kenya 🇰🇪</h3>
+
+  <p>
+   SARITTRAFF MEDIA KENYA brings shopping,
+   entertainment, technology and information together
+   in one mobile-friendly Kenyan platform.
   </p>
 
+ </div>
+
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="section card">
+
+ <h2>About SARITTRAFF MEDIA KENYA</h2>
+
+ <p style="color:var(--muted);line-height:1.7">
+  SARITTRAFF MEDIA KENYA is a Kenyan online platform
+  for discovering products, entertainment, technology,
+  lifestyle and information from Kenya and the wider world.
+ </p>
+
+ <p>
+  📞 <strong>+254 742 292 042</strong><br>
+  💬 Call or WhatsApp for orders.
+ </p>
+
+</section>
 
 </main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
-  <div class="footer-inner">
+ <div class="footer-inner">
 
-
-    <div>
-
-      <h3>
-        SARITTRAFF MEDIA KENYA 🇰🇪
-      </h3>
-
-      <p>
-        Shop local. Discover more. Stay connected.
-      </p>
-
-    </div>
-
-
-    <div>
-
-      <h3>
-        Marketplace
-      </h3>
-
-      <p>
-        Deals<br>
-        Fashion<br>
-        Technology<br>
-        Entertainment
-      </p>
-
-    </div>
-
-
-    <div>
-
-      <h3>
-        News
-      </h3>
-
-      <p>
-        Kenya<br>
-        Africa<br>
-        World<br>
-        Business
-      </p>
-
-    </div>
-
-
+  <div>
+   <h3>SARITTRAFF MEDIA KENYA 🇰🇪</h3>
+   <p>
+    Shop local. Discover more. Stay connected.
+   </p>
   </div>
 
-
-  <div class="copyright">
-
-    © 2026 SARITTRAFF MEDIA.
-    All Rights Reserved.
-
+  <div>
+   <h3>Marketplace</h3>
+   <p>
+    Deals<br>
+    Fashion<br>
+    Technology<br>
+    Entertainment
+   </p>
   </div>
+
+  <div>
+   <h3>MEGAN BABY SHOP</h3>
+   <p>
+    Baby clothes<br>
+    Toys<br>
+    Shoes<br>
+    Baby care
+   </p>
+  </div>
+
+ </div>
+
+ <div class="copyright">
+  © 2026 SARITTRAFF MEDIA. All Rights Reserved.
+ </div>
 
 </footer>
 
-
-<!-- =========================
-     SUPABASE
-========================= -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 
 <script>
 
-
-/* =================================
-   YOUR EXISTING SUPABASE CONNECTION
-   NOT CHANGED
-================================= */
+/* =====================================================
+   EXISTING SUPABASE CONNECTION
+   DO NOT CHANGE
+===================================================== */
 
 const SUPABASE_URL=
-  "https://cbpcrvqisalojbaiywst.supabase.co";
-
+"https://cbpcrvqisalojbaiywst.supabase.co";
 
 const SUPABASE_ANON_KEY=
-  "sb_publishable__HhCZzNesc04BJTgNrASwg_Qzwq5MVB";
-
+"sb_publishable__HhCZzNesc04BJTgNrASwg_Qzwq5MVB";
 
 const db=
-  supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-  );
-
+supabase.createClient(
+ SUPABASE_URL,
+ SUPABASE_ANON_KEY
+);
 
 let me=null;
-
-
-/* =================================
-   ADMIN STATUS
-================================= */
-
 let meIsAdmin=false;
 
 
-/* =================================
-   HELPER
-================================= */
+/* =====================================================
+   HELPERS
+===================================================== */
 
-const $=
-  id=>document.getElementById(id);
-
+const $=id=>document.getElementById(id);
 
 function message(x){
 
-  $("msg").innerHTML=
-    '<div class="card">'+
-
-    String(x).replace(
-      /[<>&]/g,
-
-      c=>({
-
-        "<":"&lt;",
-        ">":"&gt;",
-        "&":"&amp;"
-
-      }[c])
-
-    )+
-
-    "</div>";
+ $("msg").innerHTML=
+ '<div class="card">'+
+ String(x).replace(
+  /[<>&]/g,
+  c=>({
+   "<":"&lt;",
+   ">":"&gt;",
+   "&":"&amp;"
+  }[c])
+ )+
+ "</div>";
 
 }
 
 
-/* =================================
-   ESCAPE HTML
-================================= */
+/* =====================================================
+   SIDE MENU
+===================================================== */
 
-function esc(x){
+function openMenu(){
 
-  return String(x||"")
-    .replace(
-      /[<>&"]/g,
+ $("sideMenu").classList.add("open");
+ $("overlay").classList.add("show");
 
-      c=>({
+}
 
-        "<":"&lt;",
-        ">":"&gt;",
-        "&":"&amp;",
-        '"':"&quot;"
+function closeMenu(){
 
-      }[c])
-
-    );
+ $("sideMenu").classList.remove("open");
+ $("overlay").classList.remove("show");
 
 }
 
 
-/* =================================
+/* =====================================================
+   MENU LOGIN
+===================================================== */
+
+function menuRegister(){
+
+ $("name").value=$("menuName").value;
+ $("email").value=$("menuEmail").value;
+ $("password").value=$("menuPassword").value;
+
+ register();
+
+}
+
+function menuLogin(){
+
+ $("email").value=$("menuEmail").value;
+ $("password").value=$("menuPassword").value;
+
+ login();
+
+}
+
+
+/* =====================================================
    REGISTER
-   DATABASE OPERATION UNCHANGED
-================================= */
+   DATABASE FUNCTION UNCHANGED
+===================================================== */
 
 async function register(){
 
-  const email=
-    $("email").value.trim();
+ let {error}=
+ await db.auth.signUp({
 
-  const password=
-    $("password").value;
+  email:$("email").value,
 
-  const name=
-    $("name").value.trim();
+  password:$("password").value,
 
-
-  if(!email){
-
-    return message(
-      "Please enter your email."
-    );
-
+  options:{
+   data:{
+    name:$("name").value
+   }
   }
 
+ });
 
-  if(!password){
-
-    return message(
-      "Please enter a password."
-    );
-
-  }
-
-
-  if(password.length<6){
-
-    return message(
-      "Password must be at least 6 characters."
-    );
-
-  }
-
-
-  message("Registering...");
-
-
-  try{
-
-    const result=
-      await db.auth.signUp({
-
-        email:email,
-
-        password:password,
-
-        options:{
-
-          data:{
-
-            name:name
-
-          }
-
-        }
-
-      });
-
-
-    if(result.error){
-
-      return message(
-        "Registration error: "+
-        result.error.message
-      );
-
-    }
-
-
-    message(
-      "Registration successful. "+
-      "Check your email if confirmation is required."
-    );
-
-
-  }catch(error){
-
-    message(
-      "Connection error: "+
-      (error.message||error)
-    );
-
-  }
+ message(
+  error
+  ?
+  error.message
+  :
+  "Registered. Confirm your email if required."
+ );
 
 }
 
 
-/* =================================
+/* =====================================================
    LOGIN
-   DATABASE OPERATION UNCHANGED
-================================= */
+   DATABASE FUNCTION UNCHANGED
+===================================================== */
 
 async function login(){
 
-  const email=
-    $("email").value.trim();
+ let {data,error}=
+ await db.auth.signInWithPassword({
 
-  const password=
-    $("password").value;
+  email:$("email").value,
 
+  password:$("password").value
 
-  if(!email||!password){
+ });
 
-    return message(
-      "Enter your email and password."
-    );
+ if(error)
+  return message(error.message);
 
-  }
+ me=data.user;
 
-
-  message("Logging in...");
-
-
-  try{
-
-    const result=
-      await db.auth.signInWithPassword({
-
-        email:email,
-
-        password:password
-
-      });
-
-
-    if(result.error){
-
-      return message(
-        "Login error: "+
-        result.error.message
-      );
-
-    }
-
-
-    me=
-      result.data.user;
-
-
-    await start();
-
-
-  }catch(error){
-
-    message(
-      "Connection error: "+
-      (error.message||error)
-    );
-
-  }
+ await start();
 
 }
 
 
-/* =================================
-   START SESSION
-================================= */
+/* =====================================================
+   START
+   DATABASE FUNCTION UNCHANGED
+===================================================== */
 
 async function start(){
 
-  $("auth")
-    .classList
-    .add("hidden");
+ $("auth").classList.add("hidden");
 
+ $("app").classList.remove("hidden");
 
-  $("app")
-    .classList
-    .remove("hidden");
+ $("logout").classList.remove("hidden");
 
+ let {data:p,error}=
+ await db
+ .from("profiles")
+ .select("role")
+ .eq("id",me.id)
+ .single();
 
-  $("logout")
-    .classList
-    .remove("hidden");
+ if(error)
+  return message(error.message);
 
+ if(p.role==="admin"){
 
-  const result=
-    await db
-      .from("profiles")
-      .select("role")
-      .eq("id",me.id)
-      .single();
+  meIsAdmin=true;
 
+  $("admin").classList.remove("hidden");
 
-  if(result.error){
+ }
 
-    return message(
-      "Profile error: "+
-      result.error.message
-    );
+ load();
 
-  }
-
-
-  /*
-     ADMIN ROLE
-     Your database already uses
-     the lowercase value "admin".
-  */
-
-  if(
-    result.data.role===
-    "admin"
-  ){
-
-    meIsAdmin=true;
-
-    $("admin")
-      .classList
-      .remove("hidden");
-
-  }
-
-
-  load();
+ closeMenu();
 
 }
 
 
-/* =================================
-   LOAD PRODUCTS
-   DATABASE OPERATION UNCHANGED
-================================= */
+/* =====================================================
+   LOAD
+   DATABASE FUNCTION UNCHANGED
+===================================================== */
 
 async function load(){
 
-  const result=
-    await db
-      .from("videos")
-      .select("*")
-      .order(
-        "created_at",
-        {
-          ascending:false
-        }
-      );
+ let {data,error}=
+ await db
+ .from("videos")
+ .select("*")
+ .order(
+  "created_at",
+  {ascending:false}
+ );
 
+ if(error)
+  return message(error.message);
 
-  if(result.error){
+ $("videos").innerHTML=
+ data.length
 
-    return message(
-      "Products error: "+
-      result.error.message
-    );
+ ?
 
+ data.map(v=>`
+
+ <div
+  class="video"
+  data-title="${esc(v.title)}"
+  data-description="${esc(v.description||"")}"
+ >
+
+  <div style="
+   height:135px;
+   border-radius:15px;
+   background:linear-gradient(135deg,#071b2d,#159447);
+   display:grid;
+   place-items:center;
+   color:#fff;
+   font-size:48px;
+  ">
+   🇰🇪
+  </div>
+
+  <h3>${esc(v.title)}</h3>
+
+  <p>${esc(v.description||"")}</p>
+
+  <b>
+   KSh ${Number(v.price).toLocaleString()}
+  </b>
+
+  <button
+   class="buy-button"
+   onclick="buy(${v.id},${v.price})">
+   🛒 Buy / View
+  </button>
+
+  ${
+   meIsAdmin
+   ?
+   `
+   <button
+    class="delete-button"
+    onclick="deleteVideo(
+     ${v.id},
+     '${esc(v.title).replace(/'/g,"\\'")}'
+    )">
+    🗑️ Delete Item
+   </button>
+   `
+   :
+   ""
   }
 
+ </div>
 
-  const data=
-    result.data||[];
+ `).join("")
 
+ :
 
-  if(!data.length){
-
-    $("videos").innerHTML=
-      `
-
-      <div
-        style="
-        grid-column:1/-1;
-        text-align:center;
-        padding:45px 20px;
-        color:#66756d;
-        "
-      >
-
-        <div style="font-size:50px">
-          🛍️
-        </div>
-
-        <h3>
-          No products yet
-        </h3>
-
-        <p>
-          Products added by the administrator
-          will appear here.
-        </p>
-
-      </div>
-
-      `;
-
-    return;
-
-  }
-
-
-  $("videos").innerHTML=
-
-    data.map(v=>`
-
-      <div
-        class="video"
-        data-title="${esc(v.title)}"
-        data-description="${esc(v.description||"")}"
-      >
-
-
-        <div
-          style="
-          height:135px;
-          border-radius:15px;
-          background:
-          linear-gradient(
-            135deg,
-            #071b2d,
-            #159447
-          );
-          display:grid;
-          place-items:center;
-          color:#fff;
-          font-size:48px;
-          "
-        >
-
-          🇰🇪
-
-        </div>
-
-
-        <h3>
-
-          ${esc(v.title)}
-
-        </h3>
-
-
-        <p>
-
-          ${esc(
-            v.description||
-            "Available from SARITTRAFF MEDIA KENYA."
-          )}
-
-        </p>
-
-
-        <b>
-
-          KSh ${Number(v.price).toLocaleString()}
-
-        </b>
-
-
-        <button
-          class="buy-button"
-          type="button"
-          onclick="buy(${v.id},${v.price})"
-        >
-
-          🛒 Buy / View
-
-        </button>
-
-
-        ${
-          meIsAdmin
-          ?
-
-          `
-
-          <button
-            class="delete-button"
-            type="button"
-            onclick="deleteVideo(
-              ${v.id},
-              '${esc(v.title).replace(/'/g,"\\'")}'
-            )"
-          >
-
-            🗑️ Delete Item
-
-          </button>
-
-          `
-
-          :
-
-          ""
-
-        }
-
-
-      </div>
-
-    `).join("");
+ "No products yet.";
 
 }
 
 
-/* =================================
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function esc(x){
+
+ return String(x||"")
+ .replace(
+  /[<>&"]/g,
+  c=>({
+   "<":"&lt;",
+   ">":"&gt;",
+   "&":"&amp;",
+   '"':"&quot;"
+  }[c])
+ );
+
+}
+
+
+/* =====================================================
    SEARCH
    FRONTEND ONLY
-================================= */
+===================================================== */
 
 function searchProducts(){
 
-  const search=
-    $("siteSearch")
-      .value
-      .toLowerCase()
-      .trim();
+ const search=
+ $("siteSearch").value.toLowerCase().trim();
 
+ document
+ .querySelectorAll("#videos .video")
+ .forEach(product=>{
 
-  const products=
-    document.querySelectorAll(
-      "#videos .video"
-    );
+  const title=
+  (product.dataset.title||"").toLowerCase();
 
+  const description=
+  (product.dataset.description||"").toLowerCase();
 
-  products.forEach(product=>{
+  product.style.display=
+  !search ||
+  title.includes(search) ||
+  description.includes(search)
+  ?
+  ""
+  :
+  "none";
 
-    const title=
-      (
-        product.dataset.title||
-        ""
-      ).toLowerCase();
-
-
-    const description=
-      (
-        product.dataset.description||
-        ""
-      ).toLowerCase();
-
-
-    const matches=
-      !search||
-      title.includes(search)||
-      description.includes(search);
-
-
-    product.style.display=
-      matches
-      ?
-      ""
-      :
-      "none";
-
-  });
+ });
 
 }
 
 
-/* =================================
+/* =====================================================
    BUY
-   DATABASE OPERATION UNCHANGED
-================================= */
+   DATABASE FUNCTION UNCHANGED
+===================================================== */
 
 async function buy(id,price){
 
-  if(!me){
+ if(!me)
+  return message("Please log in before buying.");
 
-    return message(
-      "Please log in before buying."
-    );
+ if(
+  !confirm(
+   "This item costs KSh "+
+   price+
+   ". Continue?"
+  )
+ )
+ return;
 
-  }
+ let {error}=
+ await db
+ .from("purchases")
+ .insert({
 
+  user_id:me.id,
 
-  if(
-    !confirm(
-      "This item costs KSh "+
-      price+
-      ". Continue?"
-    )
-  ){
+  video_id:id,
 
-    return;
+  amount:price
 
-  }
+ });
 
+ if(error)
+  return message(error.message);
 
-  const result=
-    await db
-      .from("purchases")
-      .insert({
+ let {data}=
+ await db
+ .from("videos")
+ .select("video_url")
+ .eq("id",id)
+ .single();
 
-        user_id:me.id,
-
-        video_id:id,
-
-        amount:price
-
-      });
-
-
-  if(result.error){
-
-    return message(
-      "Purchase error: "+
-      result.error.message
-    );
-
-  }
-
-
-  const video=
-    await db
-      .from("videos")
-      .select("video_url")
-      .eq("id",id)
-      .single();
-
-
-  if(
-    video.data &&
-    video.data.video_url
-  ){
-
-    location.href=
-      video.data.video_url;
-
-  }
+ if(data&&data.video_url)
+  location.href=data.video_url;
 
 }
 
 
-/* =================================
-   DELETE VIDEO
-   ADMIN ONLY
-   NO TABLE/COLUMN CHANGES
-================================= */
+/* =====================================================
+   DELETE
+   DATABASE FUNCTION UNCHANGED
+===================================================== */
 
 async function deleteVideo(id,title){
 
-  if(!me){
-
-    return message(
-      "You must be logged in."
-    );
-
-  }
-
-
-  if(!meIsAdmin){
-
-    return message(
-      "Only the administrator can delete items."
-    );
-
-  }
-
-
-  const confirmed=
-    confirm(
-      "Delete \""+
-      title+
-      "\"?\n\n"+
-      "The item will be removed from the marketplace."
-    );
-
-
-  if(!confirmed){
-
-    return;
-
-  }
-
-
-  message(
-    "Deleting \""+
-    title+
-    "\"..."
+ if(!meIsAdmin)
+  return message(
+   "Only the administrator can delete items."
   );
 
+ if(
+  !confirm(
+   "Delete \""+
+   title+
+   "\"?"
+  )
+ )
+ return;
 
-  const result=
-    await db
-      .from("videos")
-      .delete()
-      .eq("id",id);
+ let {error}=
+ await db
+ .from("videos")
+ .delete()
+ .eq("id",id);
 
-
-  if(result.error){
-
-    return message(
-      "Delete failed: "+
-      result.error.message+
-      "\n\n"+
-      "If Supabase is blocking DELETE, "+
-      "we need to add a DELETE policy."
-    );
-
-  }
-
-
-  message(
-    "✅ \""+
-    title+
-    "\" was deleted successfully."
+ if(error)
+  return message(
+   "Delete failed: "+
+   error.message
   );
 
+ message(
+  "✅ \""+
+  title+
+  "\" was deleted."
+ );
 
-  await load();
+ load();
 
 }
 
 
-/* =================================
+/* =====================================================
    UPLOAD
-   DATABASE OPERATION UNCHANGED
-================================= */
+   DATABASE FUNCTION UNCHANGED
+===================================================== */
 
 async function upload(){
 
-  if(!meIsAdmin){
+ let f=$("file").files[0];
 
-    return message(
-      "Only the administrator can upload items."
-    );
+ let title=$("title").value;
 
-  }
-
-
-  const f=
-    $("file").files[0];
-
-
-  const title=
-    $("title").value.trim();
-
-
-  if(!f||!title){
-
-    return message(
-      "Enter a title and select a video."
-    );
-
-  }
-
-
-  const path=
-    crypto.randomUUID()+
-    "-"+
-    f.name.replace(
-      /[^a-zA-Z0-9._-]/g,
-      "_"
-    );
-
-
-  const uploadResult=
-    await db
-      .storage
-      .from("videos")
-      .upload(
-        path,
-        f
-      );
-
-
-  if(uploadResult.error){
-
-    return message(
-      "Upload error: "+
-      uploadResult.error.message
-    );
-
-  }
-
-
-  const u=
-    db
-      .storage
-      .from("videos")
-      .getPublicUrl(path);
-
-
-  const r=
-    await db
-      .from("videos")
-      .insert({
-
-        title:title,
-
-        description:
-          $("desc").value,
-
-        price:
-          Number(
-            $("price").value||10
-          ),
-
-        video_url:
-          u.data.publicUrl,
-
-        storage_path:
-          path
-
-      });
-
-
-  if(r.error){
-
-    return message(
-      "Database error: "+
-      r.error.message
-    );
-
-  }
-
-
-  message(
-    "✅ Item uploaded successfully."
+ if(!f||!title)
+  return message(
+   "Enter a title and select a video."
   );
 
+ let path=
+ crypto.randomUUID()+
+ "-"+
+ f.name.replace(
+  /[^a-zA-Z0-9._-]/g,
+  "_"
+ );
 
-  $("title").value="";
-  $("desc").value="";
-  $("price").value="10";
-  $("file").value="";
+ let {error}=
+ await db
+ .storage
+ .from("videos")
+ .upload(path,f);
 
+ if(error)
+  return message(error.message);
 
-  await load();
+ let {data:u}=
+ db
+ .storage
+ .from("videos")
+ .getPublicUrl(path);
+
+ let r=
+ await db
+ .from("videos")
+ .insert({
+
+  title,
+
+  description:$("desc").value,
+
+  price:Number(
+   $("price").value||10
+  ),
+
+  video_url:u.publicUrl,
+
+  storage_path:path
+
+ });
+
+ message(
+  r.error
+  ?
+  r.error.message
+  :
+  "Uploaded successfully."
+ );
+
+ load();
 
 }
 
 
-/* =================================
+/* =====================================================
    USERS
-   DATABASE OPERATION UNCHANGED
-================================= */
+   DATABASE FUNCTION UNCHANGED
+===================================================== */
 
 async function users(){
 
-  if(!meIsAdmin){
+ let {data,error}=
+ await db
+ .from("profiles")
+ .select(
+  "name,email,role,created_at"
+ )
+ .order(
+  "created_at",
+  {ascending:false}
+ );
 
-    return message(
-      "Only the administrator can view users."
-    );
+ if(error)
+  return message(error.message);
 
-  }
+ $("userlist").innerHTML=
+ (data||[])
+ .map(u=>`
 
+ <div class="video">
 
-  const result=
-    await db
-      .from("profiles")
-      .select(
-        "name,email,role,created_at"
-      )
-      .order(
-        "created_at",
-        {
-          ascending:false
-        }
-      );
+  <strong>
+   ${esc(u.name||"")}
+  </strong>
 
+  <br>
 
-  if(result.error){
+  ${esc(u.email||"")}
 
-    return message(
-      "Users error: "+
-      result.error.message
-    );
+  <br>
 
-  }
+  Role:
+  <b>${esc(u.role||"")}</b>
 
+ </div>
 
-  $("userlist").innerHTML=
-
-    (result.data||[])
-      .map(u=>`
-
-        <div class="video">
-
-          <strong>
-            ${esc(u.name||"User")}
-          </strong>
-
-          <span>
-            ${esc(u.email||"")}
-          </span>
-
-          <span>
-            Role:
-            <b>
-              ${esc(u.role||"")}
-            </b>
-          </span>
-
-        </div>
-
-      `)
-      .join("");
+ `)
+ .join("");
 
 }
 
 
-/* =================================
+/* =====================================================
    LOGOUT
-================================= */
+===================================================== */
 
 async function logout(){
 
-  await db.auth.signOut();
+ await db.auth.signOut();
 
-  location.reload();
+ location.reload();
 
 }
 
 
-/* =================================
-   EXISTING SESSION
-================================= */
+/* =====================================================
+   MEGAN BABY SHOP CART
+   FRONTEND ONLY
+   DOES NOT TOUCH SUPABASE
+===================================================== */
 
-db.auth
-  .getSession()
-  .then(
-    async result=>{
+let babyCart=[];
 
-      if(result.data.session){
+function addBaby(name,price){
 
-        me=
-          result.data.session.user;
+ babyCart.push({
+  name:name,
+  price:price
+ });
 
-        await start();
+ renderCart();
 
-      }
+ message(
+  "🛒 "+name+
+  " added to your Megan Baby Shop cart."
+ );
 
-    }
+}
+
+function removeBaby(index){
+
+ babyCart.splice(index,1);
+
+ renderCart();
+
+}
+
+function renderCart(){
+
+ const box=$("cartItems");
+
+ if(!babyCart.length){
+
+  box.innerHTML=
+  "Your cart is empty.";
+
+  $("cartTotal").textContent="0";
+
+  updateWhatsApp();
+
+  return;
+
+ }
+
+ let total=0;
+
+ box.innerHTML=
+ babyCart.map((item,index)=>{
+
+  total+=item.price;
+
+  return `
+   <div class="cart-item">
+
+    <span>
+     ${esc(item.name)}
+    </span>
+
+    <strong>
+     KSh ${item.price.toLocaleString()}
+    </strong>
+
+    <button
+     onclick="removeBaby(${index})"
+     style="
+      border:0;
+      background:#c91429;
+      color:white;
+      border-radius:7px;
+      padding:4px 8px;
+     ">
+     ×
+    </button>
+
+   </div>
+  `;
+
+ }).join("");
+
+ $("cartTotal").textContent=
+ total.toLocaleString();
+
+ updateWhatsApp();
+
+}
+
+function updateWhatsApp(){
+
+ let text=
+ "Hello SARITTRAFF MEDIA KENYA, I would like to order from MEGAN BABY SHOP.%0A%0A";
+
+ if(!babyCart.length){
+
+  text+="My cart is empty.";
+
+ }else{
+
+  babyCart.forEach(item=>{
+
+   text+=
+   "• "+
+   item.name+
+   " - KSh "+
+   item.price.toLocaleString()+
+   "%0A";
+
+  });
+
+  let total=
+  babyCart.reduce(
+   (sum,item)=>sum+item.price,
+   0
   );
 
+  text+=
+  "%0ATotal: KSh "+
+  total.toLocaleString();
+
+  text+=
+  "%0A%0APlease let me know delivery arrangements.";
+
+ }
+
+ $("whatsappOrder").href=
+ "https://wa.me/254742292042?text="+text;
+
+}
+
+
+/* =====================================================
+   EXISTING SESSION
+===================================================== */
+
+db.auth
+.getSession()
+.then(async x=>{
+
+ if(x.data.session){
+
+  me=x.data.session.user;
+
+  await start();
+
+ }
+
+});
+
+
+renderCart();
 
 </script>
 
