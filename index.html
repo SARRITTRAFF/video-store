@@ -3,465 +3,556 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>DJ Movies | Premium Movie Store</title>
+<meta name="theme-color" content="#071b2d">
+<meta name="description" content="SARITTRAFF MEDIA KENYA - Kenyan online marketplace, entertainment, news and more.">
+<title>SARITTRAFF MEDIA KENYA</title>
 
 <style>
-*{
-  box-sizing:border-box;
+:root{
+  --black:#07110d;
+  --navy:#071b2d;
+  --green:#159447;
+  --green2:#22b95f;
+  --red:#c91429;
+  --gold:#f4bd32;
+  --cream:#fffaf0;
+  --bg:#f3f7f5;
+  --text:#132019;
+  --muted:#66756d;
+  --white:#fff;
+  --shadow:0 12px 35px rgba(7,27,45,.12);
 }
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#080b14;
-  color:#fff;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
 }
 
-/* HEADER */
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+.topline{
+  background:var(--black);
+  color:#fff;
+  padding:8px 18px;
+  font-size:13px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.topline span:last-child{opacity:.85}
+
 header{
   position:sticky;
   top:0;
-  z-index:100;
-  background:rgba(8,11,20,.96);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid #252b3b;
-  padding:16px 20px;
+  z-index:20;
+  background:rgba(7,27,45,.98);
+  color:#fff;
+  box-shadow:0 5px 25px #0003;
 }
 
 .nav{
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
+  padding:14px 18px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:15px;
+  gap:18px;
 }
 
-.logo{
+.brand{
   display:flex;
   align-items:center;
   gap:10px;
-  font-size:22px;
-  font-weight:800;
-}
-
-.logoIcon{
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#ff1744,#8b5cf6);
+  font-weight:950;
   font-size:21px;
+  white-space:nowrap;
 }
 
-.logoText span{
-  color:#ff4d6d;
-}
-
-#logout{
-  width:auto;
-  padding:10px 18px;
-  margin:0;
-  border-radius:20px;
-  background:#202638;
-  border:1px solid #394158;
-}
-
-/* MAIN */
-main{
-  max-width:1100px;
-  margin:auto;
-  padding:0 18px 60px;
-}
-
-/* HERO */
-.hero{
-  min-height:440px;
-  margin:0 -18px 35px;
-  padding:65px 28px;
-  display:flex;
-  align-items:center;
+.flag{
+  width:36px;
+  height:36px;
+  border-radius:50%;
   position:relative;
   overflow:hidden;
   background:
-    linear-gradient(90deg,
-      rgba(8,11,20,.98) 0%,
-      rgba(8,11,20,.86) 38%,
-      rgba(8,11,20,.25) 100%),
-    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=85")
-    center/cover;
+    linear-gradient(
+      #111 0 30%,
+      #fff 30% 35%,
+      #c91429 35% 65%,
+      #fff 65% 70%,
+      #159447 70%
+    );
+  border:2px solid #fff;
 }
 
-.heroContent{
-  max-width:650px;
+.search{
+  flex:1;
   position:relative;
-  z-index:2;
 }
 
-.badge{
-  display:inline-block;
-  padding:8px 14px;
+.search input{
+  width:100%;
+  padding:12px 18px;
+  border:0;
   border-radius:30px;
-  background:#ff174422;
-  border:1px solid #ff4d6d66;
-  color:#ff758f;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:18px;
+  outline:0;
+  background:#fff;
+  color:#17202a;
+}
+
+.navlinks{
+  display:flex;
+  gap:8px;
+}
+
+.navlinks a,
+.navlinks button{
+  background:transparent;
+  border:1px solid #ffffff35;
+  color:#fff;
+  padding:10px 12px;
+  border-radius:12px;
+}
+
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:20px 18px 60px;
+}
+
+.hero{
+  min-height:440px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  color:#fff;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4,20,32,.97),
+      rgba(4,20,32,.65),
+      rgba(4,20,32,.15)
+    ),
+    url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1600&q=85")
+    center/cover;
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items:center;
+}
+
+.hero-content{
+  max-width:700px;
+  padding:48px;
+}
+
+.eyebrow{
+  display:inline-block;
+  background:var(--gold);
+  color:#111;
+  padding:7px 13px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
 }
 
 .hero h1{
-  font-size:clamp(38px,7vw,70px);
-  line-height:1;
-  margin:0 0 20px;
-}
-
-.hero h1 span{
-  background:linear-gradient(90deg,#ff4d6d,#a78bfa);
-  -webkit-background-clip:text;
-  color:transparent;
+  font-size:clamp(38px,6vw,66px);
+  line-height:.98;
+  margin:18px 0 15px;
 }
 
 .hero p{
-  color:#c8ccda;
   font-size:18px;
-  line-height:1.7;
-  max-width:570px;
+  line-height:1.6;
+  color:#e8f1f5;
+  max-width:620px;
 }
 
-.heroButtons{
+.hero-actions{
   display:flex;
+  gap:10px;
   flex-wrap:wrap;
-  gap:12px;
-  margin-top:25px;
+  margin-top:22px;
 }
 
-.heroButton{
-  width:auto;
-  padding:13px 22px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#ff1744,#8b5cf6);
+.cta{
   border:0;
-  font-weight:bold;
+  border-radius:13px;
+  padding:13px 18px;
+  font-weight:800;
+  background:var(--green2);
+  color:#fff;
 }
 
-.heroButton.secondary{
-  background:#ffffff12;
-  border:1px solid #ffffff30;
+.cta.alt{
+  background:#fff;
+  color:var(--navy);
 }
 
-/* MESSAGES */
-#msg:empty{
-  display:none;
+.section{
+  margin-top:36px;
 }
 
-.message{
-  background:#171d2d;
-  border:1px solid #30384d;
-  border-radius:15px;
-  padding:15px 18px;
-  margin:20px 0;
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:15px;
 }
 
-/* AUTH */
-.card{
-  background:#111725;
-  border:1px solid #252d40;
+.section-head h2{
+  margin:0;
+  font-size:28px;
+}
+
+.section-head p{
+  margin:4px 0 0;
+  color:var(--muted);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.category{
+  min-height:155px;
   border-radius:20px;
-  padding:25px;
-  margin:20px 0;
-  box-shadow:0 15px 45px #0005;
+  overflow:hidden;
+  position:relative;
+  color:#fff;
+  display:flex;
+  align-items:end;
+  padding:17px;
+  font-weight:900;
+  font-size:19px;
+  background-size:cover;
+  background-position:center;
+  box-shadow:var(--shadow);
 }
 
-.authCard{
+.category:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent,#071b2dcc);
+}
+
+.category span{
+  position:relative;
+  z-index:1;
+}
+
+#app{margin-top:30px}
+
+.card{
+  background:#fff;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  border:1px solid #e5ece8;
+  margin:16px 0;
+}
+
+.card h2{margin-top:0}
+
+#msg .card{
+  border-left:5px solid var(--green);
+}
+
+.market-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.video{
+  background:#fff;
+  border:1px solid #e2e9e5;
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 5px 18px #00000008;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.video h3{
+  margin:0;
+  font-size:19px;
+}
+
+.video p{
+  color:var(--muted);
+  line-height:1.5;
+  flex:1;
+}
+
+.video b{
+  font-size:20px;
+  color:var(--green);
+}
+
+.video button{
+  border:0;
+  border-radius:12px;
+  background:var(--navy);
+  color:#fff;
+  padding:12px;
+  font-weight:800;
+}
+
+#auth{
   max-width:520px;
-  margin:40px auto;
+  margin:35px auto;
 }
 
-.authCard h2{
-  font-size:30px;
+#auth input,
+#auth textarea,
+#admin input,
+#admin textarea{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #ccd9d3;
+  border-radius:12px;
+  margin:6px 0;
+  outline:none;
+  background:#fbfdfc;
+}
+
+#auth input:focus,
+#admin input:focus,
+#admin textarea:focus{
+  border-color:var(--green);
+}
+
+#auth button,
+#admin button{
+  width:100%;
+  padding:13px;
+  margin:6px 0;
+  border:0;
+  border-radius:12px;
+  background:var(--green);
+  color:#fff;
+  font-weight:800;
+}
+
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.news{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border:1px solid #e4ebe7;
+}
+
+.news img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+
+.news-body{
+  padding:17px;
+}
+
+.news-tag{
+  color:var(--green);
+  font-weight:900;
+  font-size:12px;
+  text-transform:uppercase;
+}
+
+.news h3{
+  margin:7px 0;
+  font-size:19px;
+  line-height:1.25;
+}
+
+.news p{
+  color:var(--muted);
+  line-height:1.45;
+  margin-bottom:12px;
+}
+
+.read{
+  font-weight:800;
+  color:var(--navy);
+}
+
+.news-note{
+  background:linear-gradient(135deg,var(--navy),#103c58);
+  color:#fff;
+  border-radius:20px;
+  padding:24px;
+  margin-top:18px;
+}
+
+footer{
+  background:#06131e;
+  color:#dbe7ee;
+  margin-top:35px;
+  padding:35px 18px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:25px;
+}
+
+footer h3{
+  color:#fff;
   margin-top:0;
 }
 
-input,
-textarea,
-button{
-  width:100%;
-  padding:14px;
-  margin:7px 0;
-  border:1px solid #333c52;
-  border-radius:12px;
-  box-sizing:border-box;
-  font:inherit;
+footer p{
+  line-height:1.6;
+  color:#9fb0bb;
 }
 
-input,
-textarea{
-  background:#090d17;
-  color:#fff;
-}
-
-input::placeholder,
-textarea::placeholder{
-  color:#737b90;
-}
-
-textarea{
-  min-height:100px;
-  resize:vertical;
-}
-
-button{
-  background:linear-gradient(135deg,#ff1744,#8b5cf6);
-  color:#fff;
-  border:0;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.2s;
-}
-
-button:hover{
-  transform:translateY(-1px);
-  filter:brightness(1.1);
+.copyright{
+  border-top:1px solid #ffffff18;
+  margin-top:25px;
+  padding-top:18px;
+  text-align:center;
+  color:#aebdc6;
+  font-size:14px;
 }
 
 .hidden{
   display:none!important;
 }
 
-/* SECTION TITLES */
-.sectionTitle{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:15px;
-  margin:45px 0 18px;
+#logout{
+  width:auto!important;
+  padding:10px 16px!important;
+  background:#fff!important;
+  color:var(--navy)!important;
 }
 
-.sectionTitle h2{
-  margin:0;
-  font-size:30px;
-}
-
-.sectionTitle p{
-  margin:5px 0 0;
-  color:#858da2;
-}
-
-/* MOVIE GRID */
-#videos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.video{
+.ticker{
+  background:#fff;
+  border-bottom:1px solid #e2e9e5;
   overflow:hidden;
-  padding:0;
-  background:#111725;
-  border:1px solid #252d40;
-  border-radius:18px;
-  transition:.25s;
 }
 
-.video:hover{
-  transform:translateY(-5px);
-  border-color:#ff4d6d88;
-  box-shadow:0 20px 50px #0008;
+.ticker-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:9px 18px;
+  white-space:nowrap;
+  overflow:auto;
 }
 
-.poster{
-  height:270px;
-  position:relative;
-  background-size:cover;
-  background-position:center;
+.ticker strong{
+  color:var(--red);
+  margin-right:12px;
 }
 
-.posterOverlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(transparent 35%,#080b14 100%);
-}
-
-.posterLabel{
-  position:absolute;
-  top:14px;
-  left:14px;
-  padding:7px 11px;
-  border-radius:20px;
-  background:#080b14cc;
-  border:1px solid #ffffff25;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.videoBody{
-  padding:18px;
-  margin-top:-5px;
-  position:relative;
-}
-
-.video h3{
-  margin:0 0 8px;
-  font-size:21px;
-}
-
-.video p{
-  color:#969fb4;
-  line-height:1.5;
-  min-height:45px;
-}
-
-.priceRow{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-top:15px;
-}
-
-.price{
-  color:#ff6682;
-  font-size:21px;
-  font-weight:bold;
-}
-
-.buyButton{
-  width:auto;
-  padding:10px 15px;
-  margin:0;
-  border-radius:20px;
-}
-
-/* EMPTY VIDEOS */
-.empty{
-  grid-column:1/-1;
-  text-align:center;
-  padding:50px 20px;
-  border:1px dashed #394158;
-  border-radius:18px;
-  color:#8992a8;
-}
-
-.emptyIcon{
-  font-size:45px;
-  margin-bottom:10px;
-}
-
-/* ADMIN */
-#admin{
-  border-color:#8b5cf655;
-  background:
-    linear-gradient(135deg,#111725,#171329);
-}
-
-.adminTitle{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.adminBadge{
-  font-size:11px;
-  padding:5px 9px;
-  background:#8b5cf622;
-  color:#b9a2ff;
-  border:1px solid #8b5cf655;
-  border-radius:20px;
-}
-
-/* USERS */
-#userlist{
-  margin-top:15px;
-}
-
-.user{
-  padding:15px;
-  background:#0b101c;
-  border:1px solid #272f42;
-  border-radius:12px;
-  margin:8px 0;
-}
-
-.user strong{
-  display:block;
-  margin-bottom:4px;
-}
-
-.user small{
-  color:#8992a8;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:35px 20px;
-  color:#697187;
-  border-top:1px solid #202638;
-  margin-top:50px;
-}
-
-footer strong{
-  color:#ff5d7b;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-
-  header{
-    padding:12px 14px;
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .logo{
+  .market-grid,
+  .news-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:650px){
+  .topline{
+    font-size:11px;
+  }
+
+  .nav{
+    flex-wrap:wrap;
+  }
+
+  .brand{
     font-size:18px;
   }
 
-  .logoIcon{
-    width:34px;
-    height:34px;
+  .search{
+    order:3;
+    flex-basis:100%;
   }
 
-  main{
-    padding:0 12px 40px;
+  .navlinks{
+    display:none;
   }
 
   .hero{
-    margin:0 -12px 25px;
-    min-height:500px;
-    padding:45px 22px;
-    background-position:center;
+    min-height:440px;
+  }
+
+  .hero-content{
+    padding:28px 22px;
   }
 
   .hero h1{
-    font-size:43px;
+    font-size:40px;
   }
 
-  .hero p{
+  .grid,
+  .market-grid,
+  .news-grid{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .category{
+    min-height:125px;
+    padding:12px;
     font-size:16px;
   }
 
   .card{
-    padding:19px;
-    border-radius:17px;
+    padding:16px;
   }
 
-  #videos{
-    grid-template-columns:1fr;
-  }
-
-  .poster{
-    height:300px;
-  }
-
-  .sectionTitle{
+  .section-head{
     display:block;
   }
 
-  .sectionTitle p{
-    margin-top:8px;
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:420px){
+  .grid,
+  .market-grid,
+  .news-grid{
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -469,182 +560,500 @@ footer strong{
 
 <body>
 
-<header>
-  <div class="nav">
+<div class="topline">
+  <span>🇰🇪 Proudly Kenyan • SARITTRAFF MEDIA KENYA</span>
+  <span>Kenya • Africa • The World</span>
+</div>
 
-    <div class="logo">
-      <div class="logoIcon">🎬</div>
-      <div class="logoText">DJ <span>Movies</span></div>
+<header>
+  <nav class="nav">
+
+    <a class="brand" href="#">
+      <span class="flag"></span>
+      SARITTRAFF MEDIA KENYA
+    </a>
+
+    <div class="search">
+      <input
+        id="siteSearch"
+        placeholder="Search products, deals, news..."
+      >
     </div>
 
-    <button id="logout" class="hidden" onclick="logout()">Logout</button>
+    <div class="navlinks">
+      <a href="#shop">Shop</a>
+      <a href="#news">News</a>
+      <a href="#about">About</a>
+    </div>
 
-  </div>
+    <button
+      id="logout"
+      class="hidden"
+      onclick="logout()"
+    >
+      Logout
+    </button>
+
+  </nav>
 </header>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <strong>NEWS</strong>
+    Kenya • Business • Technology • Sports • Africa • World • Entertainment • Community
+  </div>
+</div>
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero">
+<section class="hero">
 
-    <div class="heroContent">
+  <div class="hero-content">
 
-      <div class="badge">🎬 PREMIUM DJ MOVIES</div>
+    <span class="eyebrow">
+      SARITTRAFF MEDIA KENYA
+    </span>
 
-      <h1>
-        Your next<br>
-        <span>movie night</span>
-      </h1>
+    <h1>
+      Kenya's place<br>
+      to shop & discover.
+    </h1>
 
-      <p>
-        Discover great movies, browse the latest additions
-        and enjoy your personal digital movie collection.
-      </p>
-
-      <div class="heroButtons">
-        <button class="heroButton" onclick="scrollToMovies()">
-          Browse Movies
-        </button>
-
-        <button class="heroButton secondary" onclick="showAuth()">
-          Sign In
-        </button>
-      </div>
-
-    </div>
-
-  </section>
-
-  <div id="msg"></div>
-
-  <!-- AUTH -->
-  <section id="auth" class="card authCard">
-
-    <div class="badge">ACCOUNT</div>
-
-    <h2>Register / Login</h2>
-
-    <p style="color:#8992a8">
-      Create an account to access your movie collection.
+    <p>
+      Welcome to SARITTRAFF MEDIA KENYA — a modern Kenyan online
+      marketplace bringing shopping, entertainment, technology,
+      lifestyle and stories from Kenya and around the world together.
     </p>
 
-    <input id="name" placeholder="Name (registration)">
+    <div class="hero-actions">
 
-    <input
-      id="email"
-      type="email"
-      placeholder="Email"
-    >
+      <a class="cta" href="#shop">
+        Start Shopping
+      </a>
 
-    <input
-      id="password"
-      type="password"
-      placeholder="Password"
-    >
-
-    <button onclick="register()">Create Account</button>
-
-    <button
-      onclick="login()"
-      style="background:#252d40"
-    >
-      Login
-    </button>
-
-  </section>
-
-
-  <!-- APP -->
-  <section id="app" class="hidden">
-
-    <div class="sectionTitle" id="movieSection">
-
-      <div>
-        <h2>🎞️ Movie Collection</h2>
-        <p>Browse movies available in the store.</p>
-      </div>
+      <a class="cta alt" href="#news">
+        Latest News
+      </a>
 
     </div>
 
-    <div id="videos">
-      Loading movies...
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-head">
+
+    <div>
+      <h2>Explore Kenya 🇰🇪</h2>
+      <p>
+        Discover popular things for everyday Kenyan life.
+      </p>
     </div>
 
+  </div>
 
-    <!-- ADMIN -->
-    <div id="admin" class="card hidden">
+  <div class="grid">
 
-      <div class="adminTitle">
-        <h2>🎬 Admin Portal</h2>
-        <span class="adminBadge">ADMIN</span>
-      </div>
+    <a
+      class="category"
+      style="background-image:url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=700&q=80')"
+      href="#shop"
+    >
+      <span>Fashion & Style</span>
+    </a>
 
-      <p style="color:#8992a8">
-        Add movies to your store.
+    <a
+      class="category"
+      style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=700&q=80')"
+      href="#shop"
+    >
+      <span>Shopping & Deals</span>
+    </a>
+
+    <a
+      class="category"
+      style="background-image:url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=700&q=80')"
+      href="#shop"
+    >
+      <span>Entertainment</span>
+    </a>
+
+    <a
+      class="category"
+      style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80')"
+      href="#shop"
+    >
+      <span>Tech & Gadgets</span>
+    </a>
+
+  </div>
+
+</section>
+
+
+<div id="msg"></div>
+
+
+<section id="auth" class="card">
+
+  <h2>
+    Welcome to SARITTRAFF MEDIA KENYA
+  </h2>
+
+  <p style="color:var(--muted)">
+    Create an account or sign in to continue shopping.
+  </p>
+
+  <input
+    id="name"
+    placeholder="Name (registration)"
+  >
+
+  <input
+    id="email"
+    type="email"
+    placeholder="Email"
+  >
+
+  <input
+    id="password"
+    type="password"
+    placeholder="Password"
+  >
+
+  <button
+    type="button"
+    onclick="register()"
+  >
+    Create Account
+  </button>
+
+  <button
+    type="button"
+    onclick="login()"
+    style="background:var(--navy)"
+  >
+    Sign In
+  </button>
+
+</section>
+
+
+<section id="app" class="hidden">
+
+<section id="shop" class="card">
+
+  <div class="section-head">
+
+    <div>
+      <h2>
+        SARITTRAFF Marketplace 🛍️
+      </h2>
+
+      <p>
+        Discover products and entertainment available in the marketplace.
+      </p>
+    </div>
+
+  </div>
+
+  <div id="videos" class="market-grid">
+    Loading...
+  </div>
+
+</section>
+
+
+<div id="admin" class="card hidden">
+
+  <h2>
+    Seller / Admin Area
+  </h2>
+
+  <p style="color:var(--muted)">
+    Add an item to your existing marketplace database.
+  </p>
+
+  <h3>
+    Add Item
+  </h3>
+
+  <input
+    id="title"
+    placeholder="Item title"
+  >
+
+  <textarea
+    id="desc"
+    placeholder="Description"
+  ></textarea>
+
+  <input
+    id="price"
+    type="number"
+    value="10"
+    min="0"
+    placeholder="Price in KSh"
+  >
+
+  <input
+    id="file"
+    type="file"
+    accept="video/*"
+  >
+
+  <button
+    type="button"
+    onclick="upload()"
+  >
+    Publish Item
+  </button>
+
+  <h3>
+    Users
+  </h3>
+
+  <button
+    type="button"
+    onclick="users()"
+  >
+    View Users
+  </button>
+
+  <div id="userlist"></div>
+
+</div>
+
+</section>
+
+
+<section id="news" class="section">
+
+  <div class="section-head">
+
+    <div>
+
+      <h2>
+        Kenya & World News 🌍
+      </h2>
+
+      <p>
+        Follow major stories from Kenya, Africa and around the world.
       </p>
 
-      <h3>Upload Movie</h3>
-
-      <input
-        id="title"
-        placeholder="Movie title"
-      >
-
-      <textarea
-        id="desc"
-        placeholder="Movie description"
-      ></textarea>
-
-      <input
-        id="price"
-        type="number"
-        value="10"
-        min="0"
-        placeholder="Price"
-      >
-
-      <input
-        id="file"
-        type="file"
-        accept="video/*"
-      >
-
-      <button onclick="upload()">
-        ⬆️ Upload Movie
-      </button>
-
-
-      <h3 style="margin-top:30px">
-        👥 Users Database
-      </h3>
-
-      <button onclick="users()">
-        View Users
-      </button>
-
-      <div id="userlist"></div>
-
     </div>
 
-  </section>
+  </div>
+
+
+  <div class="news-grid">
+
+
+    <article class="news">
+
+      <img
+        src="https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=900&q=80"
+        alt="Nairobi city"
+      >
+
+      <div class="news-body">
+
+        <div class="news-tag">
+          Kenya
+        </div>
+
+        <h3>
+          Latest stories from Kenya
+        </h3>
+
+        <p>
+          Follow national, business, community and political reporting.
+        </p>
+
+        <a
+          class="read"
+          href="https://www.citizen.digital/"
+          target="_blank"
+          rel="noopener"
+        >
+          Read Citizen Digital →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="news">
+
+      <img
+        src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80"
+        alt="World news"
+      >
+
+      <div class="news-body">
+
+        <div class="news-tag">
+          World
+        </div>
+
+        <h3>
+          Stories from around the world
+        </h3>
+
+        <p>
+          International headlines, politics, business and breaking stories.
+        </p>
+
+        <a
+          class="read"
+          href="https://www.reuters.com/world/"
+          target="_blank"
+          rel="noopener"
+        >
+          Read Reuters World →
+        </a>
+
+      </div>
+
+    </article>
+
+
+    <article class="news">
+
+      <img
+        src="https://images.unsplash.com/photo-1504711434969-e33886168c5c?auto=format&fit=crop&w=900&q=80"
+        alt="Africa news"
+      >
+
+      <div class="news-body">
+
+        <div class="news-tag">
+          Africa
+        </div>
+
+        <h3>
+          Africa in focus
+        </h3>
+
+        <p>
+          Regional news, economy, culture, technology and major events.
+        </p>
+
+        <a
+          class="read"
+          href="https://www.bbc.com/news/world/africa"
+          target="_blank"
+          rel="noopener"
+        >
+          Read BBC Africa →
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+  <div class="news-note">
+
+    <h3 style="margin-top:0">
+      Built for Kenya 🇰🇪
+    </h3>
+
+    <p style="margin-bottom:0">
+      SARITTRAFF MEDIA KENYA brings shopping, entertainment,
+      technology and news together in one mobile-friendly Kenyan
+      platform.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section id="about" class="section card">
+
+  <h2>
+    About SARITTRAFF MEDIA KENYA
+  </h2>
+
+  <p style="color:var(--muted);line-height:1.7">
+    SARITTRAFF MEDIA KENYA is a Kenyan online platform for
+    discovering products, entertainment, technology, lifestyle
+    and information from Kenya and the wider world.
+  </p>
+
+</section>
 
 </main>
 
 
 <footer>
-  <strong>DJ Movies</strong><br>
-  Your digital movie collection
+
+  <div class="footer-inner">
+
+    <div>
+
+      <h3>
+        SARITTRAFF MEDIA KENYA 🇰🇪
+      </h3>
+
+      <p>
+        Shop local. Discover more. Stay connected.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        Marketplace
+      </h3>
+
+      <p>
+        Deals<br>
+        Fashion<br>
+        Technology<br>
+        Entertainment
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>
+        News
+      </h3>
+
+      <p>
+        Kenya<br>
+        Africa<br>
+        World<br>
+        Business
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+    © 2026 SARITTRAFF MEDIA. All Rights Reserved.
+  </div>
+
 </footer>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-
-/* ==============================
-   SUPABASE
-   DO NOT CHANGE THESE
-================================ */
 
 const SUPABASE_URL="https://cbpcrvqisalojbaiywst.supabase.co";
 
@@ -657,18 +1066,13 @@ const db=supabase.createClient(
 
 let me=null;
 
-
-/* ==============================
-   HELPERS
-================================ */
-
 const $=id=>document.getElementById(id);
 
 
 function message(x){
 
   $("msg").innerHTML=
-    '<div class="message">'+
+    '<div class="card">'+
     String(x).replace(
       /[<>&]/g,
       c=>({
@@ -682,112 +1086,117 @@ function message(x){
 }
 
 
-function esc(x){
-
-  return String(x||"").replace(
-    /[<>&"]/g,
-    c=>({
-      "<":"&lt;",
-      ">":"&gt;",
-      "&":"&amp;",
-      '"':"&quot;"
-    }[c])
-  );
-
-}
-
-
-function scrollToMovies(){
-
-  const section=$("movieSection");
-
-  if(section){
-    section.scrollIntoView({
-      behavior:"smooth"
-    });
-  }
-
-}
-
-
-function showAuth(){
-
-  $("auth").scrollIntoView({
-    behavior:"smooth"
-  });
-
-}
-
-
-/* ==============================
-   REGISTER
-   DATABASE LOGIC UNCHANGED
-================================ */
-
 async function register(){
 
-  let {error}=await db.auth.signUp({
+  const email=$("email").value.trim();
 
-    email:$("email").value,
+  const password=$("password").value;
 
-    password:$("password").value,
+  const name=$("name").value.trim();
 
-    options:{
-      data:{
-        name:$("name").value
+
+  if(!email)
+    return message("Please enter your email.");
+
+  if(!password)
+    return message("Please enter a password.");
+
+  if(password.length<6)
+    return message("Password must be at least 6 characters.");
+
+
+  message("Registering...");
+
+
+  try{
+
+    const result=await db.auth.signUp({
+
+      email:email,
+
+      password:password,
+
+      options:{
+        data:{
+          name:name
+        }
       }
-    }
-
-  });
-
-  message(
-    error
-    ?
-    error.message
-    :
-    "Registration successful. You can now log in."
-  );
-
-}
-
-
-/* ==============================
-   LOGIN
-   DATABASE LOGIC UNCHANGED
-================================ */
-
-async function login(){
-
-  message("Logging in...");
-
-  let {data,error}=
-    await db.auth.signInWithPassword({
-
-      email:$("email").value,
-
-      password:$("password").value
 
     });
 
-  if(error){
 
-    return message(
-      "Login error: "+error.message
+    if(result.error)
+      return message(
+        "Registration error: "+
+        result.error.message
+      );
+
+
+    message(
+      "Registration successful. Check your email if confirmation is required."
+    );
+
+
+  }catch(error){
+
+    message(
+      "Connection error: "+
+      (error.message||error)
     );
 
   }
 
-  me=data.user;
-
-  await start();
-
 }
 
 
-/* ==============================
-   START
-   DATABASE LOGIC UNCHANGED
-================================ */
+async function login(){
+
+  const email=$("email").value.trim();
+
+  const password=$("password").value;
+
+
+  if(!email||!password)
+    return message(
+      "Enter your email and password."
+    );
+
+
+  message("Logging in...");
+
+
+  try{
+
+    const result=
+      await db.auth.signInWithPassword({
+        email:email,
+        password:password
+      });
+
+
+    if(result.error)
+      return message(
+        "Login error: "+
+        result.error.message
+      );
+
+
+    me=result.data.user;
+
+    await start();
+
+
+  }catch(error){
+
+    message(
+      "Connection error: "+
+      (error.message||error)
+    );
+
+  }
+
+}
+
 
 async function start(){
 
@@ -797,58 +1206,39 @@ async function start(){
 
   $("logout").classList.remove("hidden");
 
-  let {data:p,error}=
+
+  const result=
     await db
       .from("profiles")
       .select("role")
       .eq("id",me.id)
       .single();
 
-  if(error){
 
-    return message(error.message);
+  if(result.error){
+
+    message(
+      "Login worked, but the profiles table could not be loaded: "+
+      result.error.message
+    );
+
+    return;
 
   }
 
-  if(p.role==="admin"){
 
+  if(result.data.role==="admin")
     $("admin").classList.remove("hidden");
 
-  }
 
   load();
 
 }
 
 
-/* ==============================
-   MOVIE IMAGES
-   APPEARANCE ONLY
-================================ */
-
-const movieImages=[
-
-  "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80",
-
-  "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80",
-
-  "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=900&q=80",
-
-  "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80",
-
-  "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80"
-
-];
-
-
-/* ==============================
-   LOAD MOVIES
-   DATABASE LOGIC UNCHANGED
-================================ */
-
 async function load(){
 
-  let {data,error}=
+  const result=
     await db
       .from("videos")
       .select("*")
@@ -857,115 +1247,105 @@ async function load(){
         {ascending:false}
       );
 
-  if(error){
 
-    return message(error.message);
+  if(result.error)
+    return message(
+      "Videos error: "+
+      result.error.message
+    );
 
-  }
 
-
-  if(!data.length){
-
-    $("videos").innerHTML=`
-
-      <div class="empty">
-
-        <div class="emptyIcon">🎬</div>
-
-        <h3>No movies yet</h3>
-
-        <p>
-          New movies will appear here when they are uploaded.
-        </p>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
+  const data=result.data||[];
 
 
   $("videos").innerHTML=
 
-    data.map((v,index)=>{
+    data.length
 
-      const image=
-        movieImages[index % movieImages.length];
+      ?
 
-      return `
+      data.map(v=>`
 
-        <article class="video">
+        <div class="video">
 
           <div
-            class="poster"
-            style="background-image:url('${image}')"
+            style="
+            height:130px;
+            border-radius:15px;
+            background:
+            linear-gradient(
+              135deg,
+              #071b2d,
+              #159447
+            );
+            display:grid;
+            place-items:center;
+            color:#fff;
+            font-size:42px
+            "
           >
-
-            <div class="posterOverlay"></div>
-
-            <div class="posterLabel">
-              🎬 MOVIE
-            </div>
-
+            🇰🇪
           </div>
 
+          <h3>
+            ${esc(v.title)}
+          </h3>
 
-          <div class="videoBody">
+          <p>
+            ${esc(v.description||"")}
+          </p>
 
-            <h3>
-              ${esc(v.title)}
-            </h3>
+          <b>
+            KSh ${v.price}
+          </b>
 
-            <p>
-              ${esc(v.description || "Premium movie available in the store.")}
-            </p>
+          <button
+            type="button"
+            onclick="buy(${v.id},${v.price})"
+          >
+            Buy / View
+          </button>
 
+        </div>
 
-            <div class="priceRow">
+      `).join("")
 
-              <div class="price">
-                KSh ${Number(v.price).toLocaleString()}
-              </div>
+      :
 
-              <button
-                class="buyButton"
-                onclick="buy(${v.id},${v.price})"
-              >
-                Buy / View
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("");
+      "No items yet.";
 
 }
 
 
-/* ==============================
-   BUY
-   DATABASE LOGIC UNCHANGED
-================================ */
+function esc(x){
+
+  return String(x||"")
+    .replace(
+      /[<>&"]/g,
+      c=>({
+        "<":"&lt;",
+        ">":"&gt;",
+        "&":"&amp;",
+        '"':"&quot;"
+      }[c])
+    );
+
+}
+
 
 async function buy(id,price){
 
   if(
     !confirm(
-      "This video costs KSh "+
+      "This item costs KSh "+
       price+
       ". Continue?"
     )
-  ) return;
+  )
+    return;
 
 
-  let {error}=
+  const result=
     await db
       .from("purchases")
       .insert({
@@ -979,14 +1359,14 @@ async function buy(id,price){
       });
 
 
-  if(error){
+  if(result.error)
+    return message(
+      "Purchase error: "+
+      result.error.message
+    );
 
-    return message(error.message);
 
-  }
-
-
-  let {data}=
+  const video=
     await db
       .from("videos")
       .select("video_url")
@@ -995,39 +1375,29 @@ async function buy(id,price){
 
 
   if(
-    data &&
-    data.video_url
-  ){
-
-    location.href=data.video_url;
-
-  }
+    video.data &&
+    video.data.video_url
+  )
+    location.href=
+      video.data.video_url;
 
 }
 
 
-/* ==============================
-   UPLOAD
-   DATABASE LOGIC UNCHANGED
-================================ */
-
 async function upload(){
 
-  let f=$("file").files[0];
+  const f=$("file").files[0];
 
-  let title=$("title").value;
+  const title=$("title").value.trim();
 
 
-  if(!f || !title){
-
+  if(!f||!title)
     return message(
       "Enter a title and select a video."
     );
 
-  }
 
-
-  let path=
+  const path=
     crypto.randomUUID()+
     "-"+
     f.name.replace(
@@ -1036,73 +1406,70 @@ async function upload(){
     );
 
 
-  let {error}=
+  const uploadResult=
     await db
       .storage
       .from("videos")
-      .upload(path,f);
+      .upload(
+        path,
+        f
+      );
 
 
-  if(error){
+  if(uploadResult.error)
+    return message(
+      "Upload error: "+
+      uploadResult.error.message
+    );
 
-    return message(error.message);
 
-  }
-
-
-  let {data:u}=
+  const u=
     db
       .storage
       .from("videos")
       .getPublicUrl(path);
 
 
-  let r=
+  const r=
     await db
       .from("videos")
       .insert({
 
-        title,
+        title:title,
 
         description:$("desc").value,
 
         price:Number(
-          $("price").value || 10
+          $("price").value||10
         ),
 
-        video_url:u.publicUrl,
+        video_url:u.data.publicUrl,
 
         storage_path:path
 
       });
 
 
+  if(r.error)
+    return message(
+      "Database error: "+
+      r.error.message
+    );
+
+
   message(
-    r.error
-    ?
-    r.error.message
-    :
-    "Movie uploaded successfully."
+    "Item uploaded successfully."
   );
 
-
-  $("title").value="";
-  $("desc").value="";
-  $("file").value="";
 
   load();
 
 }
 
 
-/* ==============================
-   USERS
-   DATABASE LOGIC UNCHANGED
-================================ */
-
 async function users(){
 
-  let {data,error}=
+  const result=
     await db
       .from("profiles")
       .select(
@@ -1114,44 +1481,28 @@ async function users(){
       );
 
 
-  if(error){
-
-    return message(error.message);
-
-  }
+  if(result.error)
+    return message(
+      "Users error: "+
+      result.error.message
+    );
 
 
   $("userlist").innerHTML=
-
-    data.map(u=>`
-
-      <div class="user">
-
-        <strong>
-          ${esc(u.name || "User")}
-        </strong>
-
-        <small>
-          ${esc(u.email)}
-        </small>
-
-        <br>
-
-        <small>
-          Role: ${esc(u.role)}
-        </small>
-
-      </div>
-
-    `).join("");
+    (result.data||[])
+      .map(u=>
+        '<div class="video">'+
+        esc(u.name||"")+
+        "<br>"+
+        esc(u.email||"")+
+        "<br>Role: "+
+        esc(u.role||"")+
+        "</div>"
+      )
+      .join("");
 
 }
 
-
-/* ==============================
-   LOGOUT
-   DATABASE LOGIC UNCHANGED
-================================ */
 
 async function logout(){
 
@@ -1162,26 +1513,18 @@ async function logout(){
 }
 
 
-/* ==============================
-   EXISTING SESSION
-   DATABASE LOGIC UNCHANGED
-================================ */
+db.auth.getSession()
+.then(async result=>{
 
-db.auth.getSession().then(
+  if(result.data.session){
 
-  async x=>{
+    me=result.data.session.user;
 
-    if(x.data.session){
-
-      me=x.data.session.user;
-
-      await start();
-
-    }
+    await start();
 
   }
 
-);
+});
 
 </script>
 
