@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SARITTRAFF MEDIA KENYA — Admin Dashboard</title>
+<style>
+:root{
+  --navy:#071a2d;
+  --navy2:#0d2944;
+  --green:#087f5b;
+  --red:#c62828;
+  --gold:#f2b01e;
+  --bg:#f4f7fa;
+  --card:#fff;
+  --text:#17212b;
+  --muted:#6b7785;
+  --border:#e4e9ee;
+  --shadow:0 8px 25px rgba(7,26,45,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+button{font:inherit}
+.app{min-height:100vh;display:flex}
+.sidebar{
+  width:250px;
+  background:var(--navy);
+  color:#fff;
+  position:fixed;
+  inset:0 auto 0 0;
+  z-index:1000;
+  padding:18px 12px;
+  overflow-y:auto;
+  transition:transform .25s ease;
+}
+.brand{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 10px 20px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.logo{
+  width:42px;height:42px;border-radius:12px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--green),var(--gold));
+  font-weight:900;
+}
+.brand strong{font-size:14px;line-height:1.2}
+.brand small{display:block;color:#b8c5d1;margin-top:3px}
+.nav-title{
+  font-size:11px;text-transform:uppercase;
+  color:#91a2b3;margin:22px 10px 7px;
+}
+.nav{
+  display:flex;flex-direction:column;gap:5px;
+}
+.nav button{
+  width:100%;border:0;background:transparent;color:#dbe5ed;
+  text-align:left;padding:12px 13px;border-radius:10px;
+  cursor:pointer;display:flex;align-items:center;gap:11px;
+  font-weight:700;
+}
+.nav button:hover,.nav button.active{background:var(--navy2);color:#fff}
+.nav button.active{box-shadow:inset 3px 0 0 var(--gold)}
+.nav .icon{width:20px;text-align:center}
+.sidebar-footer{
+  margin-top:25px;padding:12px 10px;color:#91a2b3;
+  font-size:12px;border-top:1px solid rgba(255,255,255,.1)
+}
+.main{
+  margin-left:250px;
+  width:calc(100% - 250px);
+  min-width:0;
+}
+.topbar{
+  height:70px;background:#fff;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;position:sticky;top:0;z-index:900;
+}
+.menu-btn{
+  display:none;border:0;background:#eef2f6;
+  width:42px;height:42px;border-radius:10px;cursor:pointer;font-size:20px;
+}
+.top-title{font-weight:800;font-size:18px}
+.top-actions{display:flex;align-items:center;gap:10px}
+.status{
+  padding:7px 10px;border-radius:999px;background:#e7f7f0;
+  color:var(--green);font-size:12px;font-weight:800;
+}
+.admin-chip{
+  display:flex;align-items:center;gap:8px;padding:7px 10px;
+  background:#f1f4f7;border-radius:999px;font-size:13px;font-weight:700;
+}
+.avatar{
+  width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  background:var(--navy);color:#fff;font-size:12px;
+}
+.content{padding:24px;max-width:1500px;margin:auto}
+.section{display:none}
+.section.active{display:block}
+.heading{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:15px;margin-bottom:20px;
+}
+.heading h1{margin:0 0 5px;font-size:27px}
+.heading p{margin:0;color:var(--muted)}
+.primary{
+  border:0;background:var(--green);color:#fff;padding:11px 15px;
+  border-radius:10px;font-weight:800;cursor:pointer;
+}
+.primary:hover{filter:brightness(.95)}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:15px;margin-bottom:20px;
+}
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:15px;padding:18px;box-shadow:var(--shadow);
+}
+.stat{display:flex;justify-content:space-between;gap:10px}
+.stat-icon{
+  width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+  background:#eef5f2;font-size:20px;
+}
+.stat small{color:var(--muted);font-weight:700}
+.stat h2{margin:8px 0 3px;font-size:25px}
+.change{font-size:12px;color:var(--green);font-weight:800}
+.grid2{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+.card h3{margin:0 0 14px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:600px}
+th,td{padding:12px 10px;border-bottom:1px solid var(--border);text-align:left;font-size:13px}
+th{color:var(--muted);font-size:11px;text-transform:uppercase}
+.badge{display:inline-block;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:800}
+.badge.green{background:#e5f7ef;color:var(--green)}
+.badge.gold{background:#fff5d9;color:#8b6200}
+.badge.red{background:#fde8e8;color:var(--red)}
+.quick{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px
+}
+.quick button{
+  border:1px solid var(--border);background:#fff;border-radius:12px;
+  padding:15px;text-align:left;cursor:pointer;font-weight:800;
+}
+.quick button span{display:block;color:var(--muted);font-size:12px;font-weight:500;margin-top:4px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+label{display:block;font-weight:800;font-size:13px;margin-bottom:6px}
+input,select,textarea{
+  width:100%;padding:12px;border:1px solid var(--border);
+  border-radius:10px;background:#fff;outline:none;
+}
+textarea{min-height:120px;resize:vertical}
+.full{grid-column:1/-1}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.secondary{
+  border:1px solid var(--border);background:#fff;color:var(--text);
+  padding:11px 15px;border-radius:10px;font-weight:800;cursor:pointer;
+}
+.empty{
+  text-align:center;padding:35px;color:var(--muted);
+  border:1px dashed var(--border);border-radius:12px;
+}
+.overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:999;
+}
+.mobile-nav-note{display:none}
+
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%);box-shadow:10px 0 30px rgba(0,0,0,.18)}
+  .sidebar.open{transform:translateX(0)}
+  .overlay.open{display:block}
+  .main{margin-left:0;width:100%}
+  .menu-btn{display:block}
+  .topbar{padding:0 14px;gap:10px}
+  .top-title{font-size:16px}
+  .status{display:none}
+  .content{padding:15px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid2{grid-template-columns:1fr}
+  .mobile-nav-note{display:block;color:#9fb0bf;font-size:11px;padding:10px}
+}
+@media(max-width:560px){
+  .topbar{height:62px}
+  .top-actions .admin-chip span{display:none}
+  .content{padding:12px}
+  .heading{flex-direction:column}
+  .heading h1{font-size:23px}
+  .heading .primary{width:100%}
+  .cards{grid-template-columns:1fr 1fr;gap:10px}
+  .card{padding:14px;border-radius:12px}
+  .stat h2{font-size:21px}
+  .stat-icon{width:36px;height:36px;font-size:17px}
+  .form-grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .quick{grid-template-columns:1fr 1fr}
+}
+@media(max-width:380px){
+  .cards{grid-template-columns:1fr}
+  .quick{grid-template-columns:1fr}
+}
+
+.hero-presenter{
+  position:relative;
+  min-height:430px;
+  border-radius:24px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  margin-bottom:24px;
+  isolation:isolate;
+  background:#071a2d;
+}
+.hero-presenter::before{
+  content:"";
+  position:absolute;
+  inset:-8%;
+  z-index:-2;
+  background-image:
+    url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=85");
+  background-size:cover;
+  background-position:center;
+  animation:presenterMove 16s ease-in-out infinite alternate;
+  transform-origin:center;
+}
+.hero-presenter::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(
+    90deg,
+    rgba(7,26,45,.72) 0%,
+    rgba(7,26,45,.38) 42%,
+    rgba(7,26,45,.12) 100%
+  );
+}
+.hero-glass{
+  margin:32px;
+  max-width:690px;
+  padding:28px;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:20px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+  box-shadow:0 18px 45px rgba(0,0,0,.18);
+  color:#fff;
+}
+.hero-glass .eyebrow{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(242,176,30,.88);
+  color:#071a2d;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+}
+.hero-glass h1{
+  margin:12px 0 8px;
+  font-size:clamp(30px,5vw,54px);
+  line-height:1.02;
+}
+.hero-glass p{
+  margin:0 0 18px;
+  max-width:600px;
+  color:rgba(255,255,255,.88);
+  font-size:16px;
+  line-height:1.6;
+}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.hero-actions button{
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:10px;
+  padding:11px 15px;
+  font-weight:800;
+  cursor:pointer;
+}
+.hero-actions .hero-main{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.hero-actions .hero-alt{background:rgba(255,255,255,.12);color:#fff}
+@keyframes presenterMove{
+  0%{transform:scale(1.02) translate3d(-1%,0,0)}
+  50%{transform:scale(1.08) translate3d(1%, -1%,0)}
+  100%{transform:scale(1.04) translate3d(-1%,1%,0)}
+}
+@media(max-width:560px){
+  .hero-presenter{min-height:390px;border-radius:18px}
+  .hero-glass{
+    margin:16px;
+    padding:21px;
+    background:rgba(255,255,255,.10);
+  }
+  .hero-glass h1{font-size:32px}
+  .hero-glass p{font-size:14px}
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <strong>SARITTRAFF MEDIA</strong>
+        <small>Admin Dashboard</small>
+      </div>
+    </div>
+
+    <div class="nav-title">Dashboard</div>
+    <nav class="nav">
+      <button class="active" data-section="overview"><span class="icon">▦</span> Overview</button>
+      <button data-section="products"><span class="icon">🛍</span> Products</button>
+      <button data-section="videos"><span class="icon">▶</span> Videos</button>
+      <button data-section="orders"><span class="icon">🧾</span> Orders</button>
+      <button data-section="customers"><span class="icon">👥</span> Customers</button>
+      <button data-section="news"><span class="icon">📰</span> News</button>
+      <button data-section="settings"><span class="icon">⚙</span> Settings</button>
+    </nav>
+
+    <div class="nav-title">Account</div>
+    <nav class="nav">
+      <button onclick="alert('Logout can be connected to your existing authentication.')"><span class="icon">↪</span> Logout</button>
+    </nav>
+    <div class="sidebar-footer">SARITTRAFF MEDIA 2026</div>
+  </aside>
+
+  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+  <main class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:10px">
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+        <div class="top-title">Admin Dashboard</div>
+      </div>
+      <div class="top-actions">
+        <div class="status">● Online</div>
+        <div class="admin-chip"><div class="avatar">AD</div><span>Administrator</span></div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <section class="hero-presenter">
+        <div class="hero-glass">
+          <span class="eyebrow">🇰🇪 SARITTRAFF MEDIA KENYA</span>
+          <h1>Kenya’s place to shop &amp; discover.</h1>
+          <p>
+            Shop, discover videos, follow the latest news and explore SARITTRAFF MEDIA
+            through a modern Kenyan digital experience.
+          </p>
+          <div class="hero-actions">
+            <button class="hero-main" onclick="showSection('products')">Explore Shop</button>
+            <button class="hero-alt" onclick="showSection('videos')">Watch Videos</button>
+          </div>
+        </div>
+      </section>
+      <section class="section active" id="overview">
+        <div class="heading">
+          <div><h1>Overview</h1><p>Manage your SARITTRAFF MEDIA store from one place.</p></div>
+          <button class="primary" onclick="showSection('products')">+ Add Product</button>
+        </div>
+
+        <div class="cards">
+          <div class="card stat"><div><small>Total Products</small><h2 id="productCount">0</h2><div class="change">● Active</div></div><div class="stat-icon">🛍</div></div>
+          <div class="card stat"><div><small>Videos</small><h2 id="videoCount">0</h2><div class="change">● Available</div></div><div class="stat-icon">▶</div></div>
+          <div class="card stat"><div><small>Orders</small><h2>0</h2><div class="change">● Today</div></div><div class="stat-icon">🧾</div></div>
+          <div class="card stat"><div><small>Customers</small><h2>0</h2><div class="change">● Registered</div></div><div class="stat-icon">👥</div></div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Recent Orders</h3>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Order</th><th>Customer</th><th>Amount</th><th>Status</th></tr></thead>
+                <tbody id="ordersBody"><tr><td colspan="4"><div class="empty">No orders yet.</div></td></tr></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Quick Actions</h3>
+            <div class="quick">
+              <button onclick="showSection('products')">➕ Add Product<span>Create a product</span></button>
+              <button onclick="showSection('videos')">🎬 Upload Video<span>Add a video</span></button>
+              <button onclick="showSection('news')">📰 Add News<span>Publish news</span></button>
+              <button onclick="showSection('settings')">⚙ Settings<span>Site settings</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="products">
+        <div class="heading">
+          <div><h1>Products</h1><p>Add and manage marketplace products.</p></div>
+          <button class="primary" onclick="document.getElementById('productForm').scrollIntoView({behavior:'smooth'})">+ New Product</button>
+        </div>
+        <div class="card">
+          <h3>Add Product</h3>
+          <form id="productForm" class="form-grid">
+            <div><label>Product name</label><input id="pname" required placeholder="Product name"></div>
+            <div><label>Price (KES)</label><input id="pprice" type="number" min="0" required placeholder="0"></div>
+            <div><label>Category</label><select id="pcat"><option>Shop</option><option>Movies</option><option>Technology</option><option>Lifestyle</option></select></div>
+            <div><label>Image URL</label><input id="pimage" placeholder="https://..."></div>
+            <div class="full"><label>Description</label><textarea id="pdesc" placeholder="Product description"></textarea></div>
+            <div class="full actions"><button class="primary" type="submit">Save Product</button><button class="secondary" type="reset">Clear</button></div>
+          </form>
+        </div>
+        <div class="card" style="margin-top:18px">
+          <h3>Product List</h3>
+          <div class="table-wrap">
+            <table><thead><tr><th>Name</th><th>Category</th><th>Price</th><th>Action</th></tr></thead>
+            <tbody id="productsBody"><tr><td colspan="4"><div class="empty">No products added yet.</div></td></tr></tbody></table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="videos">
+        <div class="heading">
+          <div><h1>Videos</h1><p>Manage your video catalogue.</p></div>
+        </div>
+        <div class="card">
+          <h3>Add Video</h3>
+          <form id="videoForm" class="form-grid">
+            <div><label>Video title</label><input id="vname" required placeholder="Video title"></div>
+            <div><label>Price (KES)</label><input id="vprice" type="number" value="10" min="0"></div>
+            <div><label>Thumbnail URL</label><input id="vthumb" placeholder="https://..."></div>
+            <div><label>Video URL</label><input id="vurl" placeholder="https://..."></div>
+            <div class="full actions"><button class="primary" type="submit">Add Video</button></div>
+          </form>
+        </div>
+        <div class="card" style="margin-top:18px">
+          <h3>Video List</h3>
+          <div class="table-wrap"><table><thead><tr><th>Title</th><th>Price</th><th>Video</th><th>Action</th></tr></thead>
+          <tbody id="videosBody"><tr><td colspan="4"><div class="empty">No videos added yet.</div></td></tr></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="section" id="orders">
+        <div class="heading"><div><h1>Orders</h1><p>View customer orders.</p></div></div>
+        <div class="card"><div class="empty">No orders available yet.</div></div>
+      </section>
+
+      <section class="section" id="customers">
+        <div class="heading"><div><h1>Customers</h1><p>Customer accounts and information.</p></div></div>
+        <div class="card"><div class="empty">No customers available yet.</div></div>
+      </section>
+
+      <section class="section" id="news">
+        <div class="heading"><div><h1>News</h1><p>Manage your news content.</p></div></div>
+        <div class="card">
+          <h3>Publish News</h3>
+          <div class="form-grid">
+            <div class="full"><label>Headline</label><input placeholder="News headline"></div>
+            <div><label>Category</label><select><option>Kenya</option><option>Technology</option><option>Entertainment</option><option>World</option></select></div>
+            <div><label>Image URL</label><input placeholder="https://..."></div>
+            <div class="full"><label>Story</label><textarea placeholder="Write your story..."></textarea></div>
+            <div class="full"><button class="primary" onclick="alert('Connect this button to your database when ready.')">Publish</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="settings">
+        <div class="heading"><div><h1>Settings</h1><p>Basic dashboard settings.</p></div></div>
+        <div class="card">
+          <div class="form-grid">
+            <div><label>Site name</label><input value="SARITTRAFF MEDIA KENYA"></div>
+            <div><label>Currency</label><select><option>KES — Kenyan Shilling</option></select></div>
+            <div class="full"><label>Footer</label><input value="SARITTRAFF MEDIA 2026"></div>
+            <div class="full actions"><button class="primary" onclick="alert('Settings saved locally in this demo.')">Save Settings</button></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script>
+const products = [];
+const videos = [];
+
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav button[data-section]').forEach(b=>b.classList.toggle('active',b.dataset.section===id));
+  closeSidebar();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.nav button[data-section]').forEach(btn=>{
+  btn.addEventListener('click',()=>showSection(btn.dataset.section));
+});
+
+function renderProducts(){
+  const body=document.getElementById('productsBody');
+  document.getElementById('productCount').textContent=products.length;
+  if(!products.length){body.innerHTML='<tr><td colspan="4"><div class="empty">No products added yet.</div></td></tr>';return;}
+  body.innerHTML=products.map((p,i)=>`
+    <tr><td><strong>${escapeHtml(p.name)}</strong></td><td>${escapeHtml(p.cat)}</td>
+    <td>KES ${Number(p.price).toLocaleString()}</td>
+    <td><button class="secondary" onclick="removeProduct(${i})">Delete</button></td></tr>`).join('');
+}
+function removeProduct(i){products.splice(i,1);renderProducts();}
+document.getElementById('productForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  products.push({
+    name:document.getElementById('pname').value,
+    price:document.getElementById('pprice').value,
+    cat:document.getElementById('pcat').value
+  });
+  e.target.reset(); renderProducts();
+});
+
+function renderVideos(){
+  const body=document.getElementById('videosBody');
+  document.getElementById('videoCount').textContent=videos.length;
+  if(!videos.length){body.innerHTML='<tr><td colspan="4"><div class="empty">No videos added yet.</div></td></tr>';return;}
+  body.innerHTML=videos.map((v,i)=>`
+    <tr><td><strong>${escapeHtml(v.name)}</strong></td><td>KES ${Number(v.price).toLocaleString()}</td>
+    <td>${v.url?'<a href="'+escapeAttr(v.url)+'" target="_blank" rel="noopener">Open</a>':'—'}</td>
+    <td><button class="secondary" onclick="removeVideo(${i})">Delete</button></td></tr>`).join('');
+}
+function removeVideo(i){videos.splice(i,1);renderVideos();}
+document.getElementById('videoForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  videos.push({
+    name:document.getElementById('vname').value,
+    price:document.getElementById('vprice').value || 10,
+    url:document.getElementById('vurl').value
+  });
+  e.target.reset(); document.getElementById('vprice').value=10; renderVideos();
+});
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+function escapeAttr(s){return escapeHtml(s);}
+renderProducts();
+renderVideos();
+</script>
+</body>
+</html>
