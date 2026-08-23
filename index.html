@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SARITTRAFF MEDIA KENYA</title>
+<style>
+:root{
+  --green:#18a957;
+  --red:#e52b2b;
+  --gold:#f2b01e;
+  --navy:#071a2d;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#02080e;color:#fff}
+body{overflow-x:hidden}
+
+/* THE BACKGROUND IS A REAL MARQUEE:
+   two copies travel continuously from right to left.
+   It does NOT zoom and does NOT stay static. */
+.marquee-bg{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-3;
+  background:#02080e;
+}
+.marquee-track{
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width:200%;
+  display:flex;
+  animation:marqueeMove 28s linear infinite;
+  will-change:transform;
+}
+.marquee-image{
+  flex:0 0 50%;
+  width:50%;
+  height:100%;
+  background-image:url("hero-background.png");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+}
+@keyframes marqueeMove{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* Very light transparency so the moving image remains visible. */
+.screen{
+  min-height:100vh;
+  background:rgba(0,0,0,.16);
+}
+.topline{
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:0 4%;
+  background:rgba(0,0,0,.42);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  font-size:13px;
+}
+.header{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:12px 4%;
+  background:rgba(4,17,29,.34);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(2px);
+}
+.logo{font-size:20px;font-weight:900;white-space:nowrap}
+.logo span{color:var(--red)}
+.search{
+  flex:1;
+  max-width:590px;
+  margin:auto;
+  padding:13px 18px;
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:30px;
+  background:rgba(0,0,0,.18);
+  color:#fff;
+  outline:0;
+}
+.nav{display:flex;gap:20px;font-weight:800}
+.nav a{color:#fff;text-decoration:none}
+.hero{
+  min-height:calc(100vh - 118px);
+  display:flex;
+  align-items:center;
+  padding:55px 5%;
+}
+.glass{
+  max-width:700px;
+  padding:28px;
+  border-radius:22px;
+  background:rgba(0,0,0,.20);
+  border:1px solid rgba(255,255,255,.24);
+  backdrop-filter:blur(2px);
+  box-shadow:0 20px 60px rgba(0,0,0,.16);
+}
+.eyebrow{
+  display:inline-block;
+  padding:7px 11px;
+  border-radius:999px;
+  background:rgba(242,176,30,.9);
+  color:#071a2d;
+  font-weight:900;
+  font-size:12px;
+}
+h1{font-size:clamp(38px,6vw,70px);line-height:.98;margin:16px 0}
+h1 .green{color:#25c76b}
+h1 .red{color:#ff4141}
+.hero p{font-size:18px;line-height:1.6;color:rgba(255,255,255,.9)}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+button{
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:11px;
+  padding:13px 18px;
+  font-weight:900;
+  cursor:pointer;
+}
+.shop{background:var(--green);color:#fff}
+.watch{background:var(--red);color:#fff}
+.news{background:rgba(255,255,255,.12);color:#fff}
+.categories{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+  padding:0 5% 35px;
+}
+.category{
+  padding:18px;
+  border-radius:17px;
+  background:rgba(0,0,0,.25);
+  border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(2px);
+}
+.category h3{margin:0 0 8px}
+.category p{margin:0;color:rgba(255,255,255,.78);font-size:13px}
+footer{
+  padding:20px 5%;
+  text-align:center;
+  background:rgba(0,0,0,.38);
+  border-top:1px solid rgba(255,255,255,.12);
+}
+@media(max-width:800px){
+  .topline{font-size:11px}
+  .header{flex-wrap:wrap}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .nav{gap:12px;font-size:13px}
+  .hero{padding:30px 5%;min-height:calc(100vh - 150px)}
+  .glass{padding:22px}
+  .categories{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .topline{display:none}
+  .header{min-height:64px;padding:10px 4%}
+  .logo{font-size:16px}
+  .nav{gap:9px;font-size:12px}
+  .hero{padding:22px 4%}
+  h1{font-size:39px}
+  .hero p{font-size:15px}
+  .glass{background:rgba(0,0,0,.16);padding:18px}
+  .categories{grid-template-columns:1fr 1fr;padding-left:4%;padding-right:4%}
+  .category{padding:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .marquee-track{animation-duration:60s}
+}
+</style>
+</head>
+<body>
+
+<div class="marquee-bg" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-image"></div>
+    <div class="marquee-image"></div>
+  </div>
+</div>
+
+<div class="screen">
+  <div class="topline">
+    <span>🇰🇪 Proudly Kenyan • SARITTRAFF MEDIA KENYA</span>
+    <span>NEWS • Kenya's No.1 Platform for Shopping, Entertainment & Local News</span>
+  </div>
+
+  <header class="header">
+    <div class="logo">▶ SARITTRAFF <span>MEDIA KENYA</span></div>
+    <input class="search" placeholder="Search products, news, videos...">
+    <nav class="nav">
+      <a href="#shop">Shop</a>
+      <a href="#news">News</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="glass">
+        <span class="eyebrow">🇰🇪 100% Kenyan Owned</span>
+        <h1>Kenya’s place to <span class="green">shop</span> &amp; <span class="red">discover.</span></h1>
+        <p>Shop top products, watch DJ movies, read trending news and explore the best of Kenya and the world.</p>
+        <div class="buttons">
+          <button class="shop">🛍 Shop Now</button>
+          <button class="watch">▶ Watch Videos</button>
+          <button class="news">▤ Read News</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories" id="shop">
+      <div class="category"><h3>🛍 SHOP</h3><p>Everything you need at the best prices.</p></div>
+      <div class="category"><h3>▶ DJ MOVIES</h3><p>Latest DJ movies and series.</p></div>
+      <div class="category"><h3>📰 NEWS</h3><p>Local and international breaking news.</p></div>
+      <div class="category"><h3>📱 TECHNOLOGY</h3><p>Gadgets, reviews and more.</p></div>
+      <div class="category"><h3>✨ LIFESTYLE</h3><p>Fashion, tips and more.</p></div>
+    </section>
+  </main>
+
+  <footer id="about">SARITTRAFF MEDIA 2026 • Kenya 🇰🇪</footer>
+</div>
+
+</body>
+</html>
